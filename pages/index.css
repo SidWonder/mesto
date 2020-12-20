@@ -1,0 +1,60 @@
+@import url("../blocks/root/root.css");
+@import url("../blocks/page/page.css");
+@import url("../blocks/content/content.css");
+@import url("../blocks/header/header.css");
+@import "../blocks/footer/footer.css";
+
+.profile{
+    display: flex;
+
+    /*grid-template-areas:*/
+    /*             "title website"*/
+    /*                "img text";*/
+}
+
+.profile__add-button{
+
+    width: 150px;
+    height: 50px;
+    padding: 0;
+    background-image: url("../img/icons/Add Button.png");
+    background-color: black;
+    box-sizing: border-box;
+    border: none;
+    cursor: pointer;
+}
+
+.profile__add-button:hover{
+    transition: all .55s ease-in;
+    opacity: 0.7;
+}
+
+.elements__grid{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(280px, 282px));
+    column-gap: 17px;
+    row-gap: 20px;
+    justify-content: center;
+}
+
+@media (max-width: 906px) {
+    .elements__grid {
+        grid-template-columns: repeat(2, minmax(280px, 282px) );
+    }
+}
+
+@media (max-width: 610px) {
+    .elements__grid {
+        grid-template-columns: minmax(280px, 282px);
+    }
+}
+
+.gird__item{
+    box-sizing: border-box;
+}
+
+
+
+.grid__img {
+    height: 282px;
+}
