@@ -6,14 +6,36 @@
 
 .profile{
     display: flex;
+    align-items: center;
+    padding: 36.25px 0 47.25px 0;
+    flex-wrap: wrap;
+    /*justify-content: space-between;*/
 
     /*grid-template-areas:*/
     /*             "title website"*/
     /*                "img text";*/
 }
 
-.profile__add-button{
+.profile__header {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 42px;
+    line-height: 48px;
+    margin: 0;
+}
+.profile__avatar {
+    flex: 0 0 13.6%;
+}
+.profile__subtitle {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    margin: 0;
+}
 
+.profile__button_add {
+    flex: 0 0 150px;
     width: 150px;
     height: 50px;
     padding: 0;
@@ -24,9 +46,29 @@
     cursor: pointer;
 }
 
-.profile__add-button:hover{
+.profile__button_edit {
+    height: 24px;
+    width: 24px;
+    padding: 0;
+    background-image: url("../img/icons/Edit Button.png");
+    background-color: black;
+    box-sizing: border-box;
+    border: none;
+    cursor: pointer;
+}
+
+.profile__button_add:hover{
     transition: all .55s ease-in;
     opacity: 0.7;
+}
+.profile__button_edit:hover{
+    transition: all .55s ease-in;
+    opacity: 0.7;
+}
+
+.profile__wrapper {
+    flex: 1 0 336px;
+    padding-left: 30px;
 }
 
 .elements__grid{
@@ -51,10 +93,128 @@
 
 .gird__item{
     box-sizing: border-box;
+    border-radius: 10px 10px 10px 10px;
+    background-color: white;
+    line-height:0;
 }
-
-
 
 .grid__img {
     height: 282px;
+    border-radius: 10px 10px 0 0;
+}
+.grid__wrapper{
+    display: flex;
+    padding: 0 21px;
+    justify-content: space-between;
+    align-items: center;
+    height: 79px;
+}
+.grid__title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin: 0;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 29px;
+    color: #000000;
+    max-width: 150px;
+}
+
+.grid__button {
+    padding: 0;
+    border: none;
+    height:18.13px;
+    width: 20.76px;
+    background: none;
+    background-image: url("../img/icons/heart.png");
+    background-repeat: no-repeat;
+    cursor: pointer;
+    outline: none;
+}
+
+.grid__button:hover{
+    transition: all .55s ease-in;
+    opacity: 0.7;
+}
+
+.grid__button:active{
+    background-image: url("../img/icons/heart_active.png");
+    opacity: 0.7;
+}
+
+.footer{
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 67px 0 60px 0;
+}
+
+.popup {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0, 0.8);
+    top: 0;
+    left: 0;
+
+}
+
+.popup__body {
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 34px 36px;
+}
+.popup__content{
+    box-sizing: border-box;
+    width: 430px;
+    height: 330px;
+    position: relative;
+    background-color: #fff;
+    color: black;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+}
+.popup__title{
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 29px;
+}
+.popup__text{
+    /*color: white;*/
+}
+.popup__button_close {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    top:-35px;
+    right: -35px;
+    background: none;
+    background-image: url("../img/icons/Close Icon.png");
+    background-position: center;
+    border: none;
+}
+.popup__button_close:hover{
+    opacity: 0.6;
+}
+
+
+.popup__input {
+    margin-top: 30px;
+}
+.popup__input:first-child {
+    margin-top: 54px;
+}
+
+.popup__button_save {
+    margin-top: 48px;
+    height: 50px;
+
 }
