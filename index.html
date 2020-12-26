@@ -20,52 +20,52 @@
             <img class="profile__avatar" src="./img/profile/profile-avatar.png" alt="Аватар пользователя">
             <div class="profile__wrapper">
                 <h2 class="profile__header">Жак-Ив Кусто
-                    <button class="profile__button_edit"></button>
+                    <button class="profile__button profile__button_edit"></button>
                 </h2>
                 <p class="profile__subtitle">Исследователь океана</p>
             </div>
-            <button class="profile__button_add"></button>
+            <button class="profile__button profile__button_add"></button>
         </section>
         <section class="elements">
-            <div class="elements__grid">
-                <div class="gird__item">
+            <div class="grid">
+                <div class="grid__item">
                     <img src="./img/places/karach.jpg" alt="" class="grid__img">
-                    <div class="grid__wrapper"><h3 class="grid__title">Lorem ipsum  ipsum ipsum.</h3>
+                    <div class="grid__wrapper"><h3 class="grid__title">Карачаевск</h3>
                         <button class="grid__button"></button>
                     </div>
 
                 </div>
-                <div class="gird__item">
+                <div class="grid__item">
                     <img src="./img/places/elbrus.jpg" alt="" class="grid__img">
-                    <div class="grid__wrapper"><h3 class="grid__title">Lorem.</h3>
+                    <div class="grid__wrapper"><h3 class="grid__title">Гора Эльбрус</h3>
                         <button class="grid__button"></button>
                     </div>
 
                 </div>
-                <div class="gird__item">
+                <div class="grid__item">
                     <img src="./img/places/dombai.jpg" alt="" class="grid__img">
-                    <div class="grid__wrapper"><h3 class="grid__title">Lorem.</h3>
+                    <div class="grid__wrapper"><h3 class="grid__title">Домбай</h3>
                         <button class="grid__button"></button>
                     </div>
 
                 </div>
-                <div class="gird__item">
+                <div class="grid__item">
                     <img src="./img/places/karach.jpg" alt="" class="grid__img">
-                    <div class="grid__wrapper"><h3 class="grid__title">Lorem.</h3>
+                    <div class="grid__wrapper"><h3 class="grid__title">Гора Эльбрус</h3>
                         <button class="grid__button"></button>
                     </div>
 
                 </div>
-                <div class="gird__item">
+                <div class="grid__item">
                     <img src="./img/places/elbrus.jpg" alt="" class="grid__img">
-                    <div class="grid__wrapper"><h3 class="grid__title">Lorem.</h3>
+                    <div class="grid__wrapper"><h3 class="grid__title">Домбай</h3>
                         <button class="grid__button"></button>
                     </div>
 
                 </div>
-                <div class="gird__item">
+                <div class="grid__item">
                     <img src="./img/places/dombai.jpg" alt="" class="grid__img">
-                    <div class="grid__wrapper"><h3 class="grid__title">Lorem.</h3>
+                    <div class="grid__wrapper"><h3 class="grid__title">Карачаево-Черкессия</h3>
                         <button class="grid__button"></button>
                     </div>
 
@@ -77,16 +77,17 @@
         <p class="footer__item">© 2020 Mesto Russia</p>
     </footer>
 </div>
-<div class="popup">
+<div id="popup" class="popup">
     <div class="popup__body">
         <div class="popup__content">
-            <button href="#" class="popup__button_close"></button>
+            <button href="#" class="popup__button popup__button_close"></button>
             <h3 class="popup__title">Редактировать профиль</h3>
-            <input class="popup__input" placeholder="sdfsdfsdfs">
-            <input class="popup__input" type="text" placeholder="sdfsdfsdfs">
-            <button class="popup__button_save">Сохранить</button>
+            <input id="profile__header-change" class="popup__input" placeholder="">
+            <input id="profile__subtitle-change"  class="popup__input" type="text" placeholder="">
+            <button class="popup__button popup__button_save">Сохранить</button>
         </div>
     </div>
 </div>
+<script src="scripts/script.js"></script>
 </body>
 </html>

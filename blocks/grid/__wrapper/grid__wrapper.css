@@ -1,0 +1,7 @@
+.grid__wrapper{
+    display: flex;
+    padding: 0 21px;
+    justify-content: space-between;
+    align-items: center;
+    height: 79px;
+}

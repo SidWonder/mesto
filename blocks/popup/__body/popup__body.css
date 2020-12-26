@@ -1,0 +1,14 @@
+.popup__body {
+    box-sizing: border-box;
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 34px 36px;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+    .popup__body {
+        padding: 0 19px;
+    }
+}

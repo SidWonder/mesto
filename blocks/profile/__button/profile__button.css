@@ -1,0 +1,7 @@
+.profile__button {
+    background-color: black;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+    border: none;
+    cursor: pointer;
+}

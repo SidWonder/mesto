@@ -1,0 +1,19 @@
+.grid{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(280px, 282px));
+    column-gap: 17px;
+    row-gap: 20px;
+    justify-content: center;
+}
+
+@media (max-width: 906px) {
+    .grid {
+        grid-template-columns: repeat(2, minmax(280px, 282px) );
+    }
+}
+
+@media (max-width: 610px) {
+    .grid {
+        grid-template-columns: minmax(280px, 282px);
+    }
+}

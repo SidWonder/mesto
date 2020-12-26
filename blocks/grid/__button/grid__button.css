@@ -1,0 +1,21 @@
+.grid__button {
+    padding: 0;
+    border: none;
+    height:18.13px;
+    width: 20.76px;
+    background: none;
+    background-image: url("../../../img/icons/heart.png");
+    background-repeat: no-repeat;
+    cursor: pointer;
+    outline: none;
+}
+
+.grid__button:hover{
+    transition: all .55s ease-in;
+    opacity: 0.7;
+}
+
+.grid__button:active{
+    background-image: url("../../../img/icons/heart_active.png");
+    opacity: 0.7;
+}
