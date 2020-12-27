@@ -22,6 +22,7 @@
 @import url("../blocks/grid/grid.css");
 @import url("../blocks/grid/__wrapper/grid__wrapper.css");
 @import url("../blocks/grid/__button/grid__button.css");
+@import url("../blocks/grid/__button/_like/grid__button_like.css");
 @import url("../blocks/grid/__item/grid__item.css");
 @import url("../blocks/grid/__img/grid__img.css");
 @import url("../blocks/grid/__title/grid__title.css");

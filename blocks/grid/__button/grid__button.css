@@ -15,7 +15,4 @@
     opacity: 0.7;
 }
 
-.grid__button:active{
-    background-image: url("../../../img/icons/heart_active.png");
-    opacity: 0.7;
-}
+
