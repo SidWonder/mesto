@@ -8,11 +8,9 @@
     background-repeat: no-repeat;
     cursor: pointer;
     outline: none;
+    transition: all .55s ease-in;
 }
 
 .grid__button:hover{
-    transition: all .55s ease-in;
     opacity: 0.7;
 }
-
-
