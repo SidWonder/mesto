@@ -1,10 +1,9 @@
 .profile__button_edit {
-    height: 24px;
-    width: 24px;
-    margin-left: 18px;
     padding: 0;
     background-image: url("../../../../img/icons/Edit Button.png");
     background-size: contain;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
@@ -14,7 +13,13 @@
         width: 18px;
     }
 }
-
+@media (min-width: 768px) {
+    .profile__button_edit {
+        height: 24px;
+        width: 24px;
+        margin-left: 18px;
+    }
+}
 .profile__button_edit:hover {
     transition: all .55s ease-in;
     opacity: 0.6;
