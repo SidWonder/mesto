@@ -1,5 +1,6 @@
 'use strict'
 const profileHeader = document.querySelector('.profile__header'),
+    profileHeaderText = document.querySelector('.profile__text'),
     profileSubtitle = document.querySelector('.profile__subtitle');
 
 const closeBtn = document.querySelector('.popup__button_close');
@@ -11,7 +12,7 @@ const profileSubtitleInput = document.querySelector('#profile__subtitle-change')
 const likeBtn = document.querySelectorAll('.grid__button');
 
 
-profileHeaderInput.value = profileHeader.innerText;
+profileHeaderInput.value = profileHeaderText.innerText;
 profileSubtitleInput.value = profileSubtitle.innerText;
 
 editBtn.addEventListener('click', ()=> {
@@ -24,9 +25,9 @@ closeBtn.addEventListener('click', ()=> {
 });
 
 saveBtn.addEventListener('click', () => {
-    profileHeader.innerText = profileHeaderInput.value;
-    profileHeader.insertAdjacentElement('beforeend', editBtn);
-    profileSubtitle.innerText = profileSubtitleInput.value;
+    profileHeaderText.innerText = profileHeaderInput.value;
+    // profileHeader.insertAdjacentElement('beforeend', editBtn);
+    // profileSubtitle.innerText = profileSubtitleInput.value;
     popup.classList.remove('popup_active');
 })
 

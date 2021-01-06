@@ -3,13 +3,13 @@
     width: 150px;
     height: 50px;
     padding: 0;
-    background-image: url("../../../../img/icons/Add Button.png");
+    background-image: url("../../../../img/icons/add-button.png");
 }
 
 @media (min-width: 320px) and (max-width: 800px) {
     .profile__button_add {
         flex: 1 0 50px;
-        background-image: url("../../../../img/icons/Add Button mobile.png");
+        background-image: url("../../../../img/icons/add-button_mobile.png");
         width: 282px;
         margin-top: 36px;
     }

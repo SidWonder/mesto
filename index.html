@@ -2,9 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mesto</title>
     <link rel="stylesheet" href="./pages/index.css">
 </head>
@@ -19,7 +17,7 @@
         <section class="profile">
             <img class="profile__avatar" src="./img/profile/profile-avatar.png" alt="Аватар пользователя">
             <div class="profile__wrapper">
-                <h2 class="profile__header">Жак-Ив Кусто
+                <h2 class="profile__header"><span class="profile__text">Жак-Ив Кусто</span>
                     <button class="profile__button profile__button_edit"></button>
                 </h2>
                 <p class="profile__subtitle">Исследователь океана</p>
@@ -80,7 +78,7 @@
 <div id="popup" class="popup">
     <div class="popup__body">
         <div class="popup__content">
-            <button href="#" class="popup__button popup__button_close"></button>
+            <button class="popup__button popup__button_close"></button>
             <h3 class="popup__title">Редактировать профиль</h3>
             <input id="profile__header-change" class="popup__input" placeholder="">
             <input id="profile__subtitle-change"  class="popup__input" type="text" placeholder="">

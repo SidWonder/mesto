@@ -1,3 +1,15 @@
 .footer__item {
     color: #545454;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+    .footer__item {
+        font-size: 14px;
+        line-height: 17px;
+    }
 }
