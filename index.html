@@ -1,88 +1,90 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mesto</title>
-    <link rel="stylesheet" href="./pages/index.css">
+    <link rel="stylesheet" href="./pages/index.css" />
 </head>
 <body class="root">
 <div class="page">
     <header class="header">
         <a href="#" target="_blank" class="header__link">
-            <img class="header__logo" src="./img/header/header-logo.png" alt="Место Россия">
+            <img class="header__logo" src="./img/header/header-logo.png" alt="Место Россия" />
         </a>
     </header>
     <main class="content">
         <section class="profile">
-            <img class="profile__avatar" src="./img/profile/profile-avatar.png" alt="Аватар пользователя">
+            <img class="profile__avatar" src="./img/profile/profile-avatar.png" alt="Аватар пользователя" />
             <div class="profile__wrapper">
-                <h2 class="profile__header"><span class="profile__text">Жак-Ив Кусто</span>
-                    <button class="profile__button profile__button_edit"></button>
-                </h2>
+                <h1 class="profile__header">Жак-Ив Кусто
+                </h1>
+                <button class="profile__button profile__button_edit" type="button" aria-label="Редактировать профиль" ></button>
                 <p class="profile__subtitle">Исследователь океана</p>
             </div>
-            <button class="profile__button profile__button_add"></button>
+            <button class="profile__button profile__button_add" type="button" aria-label="Добавить что-то новенькое" ></button>
         </section>
         <section class="elements">
             <div class="grid">
                 <div class="grid__item">
-                    <img src="./img/places/karach.jpg" alt="Карачаевск" class="grid__img">
-                    <div class="grid__wrapper"><h3 class="grid__title">Карачаевск</h3>
-                        <button class="grid__button grid__button_like"></button>
+                    <img src="./img/places/karach.jpg" alt="Карачаевск" class="grid__img" />
+                    <div class="grid__wrapper">
+                        <h3 class="grid__title">Карачаевск</h3>
+                        <button type="button" class="grid__button grid__button_like" aria-label="Лайкнуть эту шнягу"></button>
                     </div>
-
                 </div>
                 <div class="grid__item">
-                    <img src="./img/places/elbrus.jpg" alt="Гора Эльбрус" class="grid__img">
-                    <div class="grid__wrapper"><h3 class="grid__title">Гора Эльбрус</h3>
-                        <button class="grid__button"></button>
+                    <img src="./img/places/elbrus.jpg" alt="Гора Эльбрус" class="grid__img" />
+                    <div class="grid__wrapper">
+                        <h3 class="grid__title">Гора Эльбрус</h3>
+                        <button type="button" class="grid__button" aria-label="Лайкнуть эту шнягу"></button>
                     </div>
-
                 </div>
                 <div class="grid__item">
-                    <img src="./img/places/dombai.jpg" alt="Домбай" class="grid__img">
-                    <div class="grid__wrapper"><h3 class="grid__title">Домбай</h3>
-                        <button class="grid__button"></button>
+                    <img src="./img/places/dombai.jpg" alt="Домбай" class="grid__img" />
+                    <div class="grid__wrapper">
+                        <h3 class="grid__title">Домбай</h3>
+                        <button type="button" class="grid__button" aria-label="Лайкнуть эту шнягу"></button>
                     </div>
-
                 </div>
                 <div class="grid__item">
-                    <img src="./img/places/karach.jpg" alt="Гора Эльбрус" class="grid__img">
-                    <div class="grid__wrapper"><h3 class="grid__title">Гора Эльбрус</h3>
-                        <button class="grid__button"></button>
+                    <img src="./img/places/karach.jpg" alt="Гора Эльбрус" class="grid__img" />
+                    <div class="grid__wrapper">
+                        <h3 class="grid__title">Гора Эльбрус</h3>
+                        <button type="button" class="grid__button" aria-label="Лайкнуть эту шнягу"></button>
                     </div>
-
                 </div>
                 <div class="grid__item">
-                    <img src="./img/places/elbrus.jpg" alt="Домбай" class="grid__img">
-                    <div class="grid__wrapper"><h3 class="grid__title">Домбай</h3>
-                        <button class="grid__button"></button>
+                    <img src="./img/places/elbrus.jpg" alt="Домбай" class="grid__img" />
+                    <div class="grid__wrapper">
+                        <h3 class="grid__title">Домбай</h3>
+                        <button type="button" class="grid__button" aria-label="Лайкнуть эту шнягу"></button>
                     </div>
-
                 </div>
                 <div class="grid__item">
-                    <img src="./img/places/dombai.jpg" alt="Карачаево-Черкессия" class="grid__img">
-                    <div class="grid__wrapper"><h3 class="grid__title">Карачаево-Черкессия</h3>
-                        <button class="grid__button"></button>
+                    <img src="./img/places/dombai.jpg" alt="Карачаево-Черкессия" class="grid__img" />
+                    <div class="grid__wrapper">
+                        <h3 class="grid__title">Карачаево-Черкессия</h3>
+                        <button type="button" class="grid__button" aria-label="Лайкнуть эту шнягу"></button>
                     </div>
-
                 </div>
             </div>
         </section>
     </main>
     <footer class="footer">
-        <p class="footer__item">© 2020 Mesto Russia</p>
+        <p class="footer__item">&copy 2020 Mesto Russia</p>
     </footer>
 </div>
 <div id="popup" class="popup">
     <div class="popup__body">
         <div class="popup__content">
-            <button class="popup__button popup__button_close"></button>
             <h3 class="popup__title">Редактировать профиль</h3>
-            <input id="profile__header-change" class="popup__input" placeholder="">
-            <input id="profile__subtitle-change"  class="popup__input" type="text" placeholder="">
-            <button class="popup__button popup__button_save">Сохранить</button>
+            <form class="popup__form" name="profile-edit">
+                <input type="text" name="profile-name" id="profile__header-change" class="popup__input" placeholder="" />
+                <input type="text" name="profile-job" id="profile__subtitle-change" class="popup__input" type="text" placeholder="" />
+                <button type="submit" class="popup__button popup__button_save">Сохранить</button>
+            </form>
+            <button type="button" class="popup__button popup__button_close"></button>
         </div>
     </div>
 </div>

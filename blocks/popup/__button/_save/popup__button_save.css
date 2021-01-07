@@ -3,14 +3,24 @@
     height: 50px;
     background-color: black;
     color: white;
-    font-family: Inter;
+    font-family: 'Inter', ‘Arial’, sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
     line-height: 22px;
     text-align: center;
+    border-radius: 2px;
+    padding: 14px 134.56px 18px 134px;
 }
 
 .popup__button_save:hover{
     background-color: rgba(0, 0, 0, 0.8);
+}
+
+@media (min-width: 320px) and (max-width: 767px) {
+    .popup__button_save {
+        font-size: 14px;
+        line-height: 17px;
+        padding: 14px 82px;
+    }
 }

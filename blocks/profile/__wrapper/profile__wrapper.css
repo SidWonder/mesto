@@ -1,6 +1,9 @@
 .profile__wrapper {
     flex: 1 0 336px;
     padding-left: 30px;
+    display: flex;
+    flex-wrap: wrap;
+
 }
 
 @media (min-width: 320px) and (max-width: 800px) {
@@ -8,5 +11,6 @@
         flex: 1 0 54px;
         padding-left: 0;
         margin-top: 22.25px;
+        justify-content: center;
     }
 }

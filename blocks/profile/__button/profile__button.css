@@ -5,3 +5,8 @@
     border: none;
     cursor: pointer;
 }
+
+.profile__button:hover {
+    transition: all .55s ease-in;
+    opacity: 0.6;
+}

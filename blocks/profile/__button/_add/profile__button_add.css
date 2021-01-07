@@ -14,8 +14,3 @@
         margin-top: 36px;
     }
 }
-
-.profile__button_add:hover {
-    transition: all .55s ease-in;
-    opacity: 0.6;
-}

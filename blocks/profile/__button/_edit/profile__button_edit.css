@@ -2,8 +2,8 @@
     padding: 0;
     background-image: url("../../../../img/icons/edit-button.png");
     background-size: contain;
-    display: inline-block;
-    vertical-align: middle;
+    /*vertical-align: middle;*/
+align-self: center;
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
@@ -19,8 +19,4 @@
         width: 24px;
         margin-left: 18px;
     }
-}
-.profile__button_edit:hover {
-    transition: all .55s ease-in;
-    opacity: 0.6;
 }
