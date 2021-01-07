@@ -1,6 +1,6 @@
 'use strict'
 
-let formElement = popup.querySelector('.popup__form'),
+let formElement = document.querySelector('.popup__form'),
     profileHeader = document.querySelector('.profile__header'),
     profileSubtitle = document.querySelector('.profile__subtitle'),
     closeBtn = document.querySelector('.popup__button_close'),
