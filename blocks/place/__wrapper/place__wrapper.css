@@ -1,8 +1,7 @@
-.grid__wrapper{
+.place__wrapper{
     display: flex;
-    padding: 25px 20px 30px 20px;
+    padding: 23px 20px 28px 20px;
     justify-content: space-between;
     align-items: center;
-    max-height: 80px;
     box-sizing: border-box;
 }

@@ -11,8 +11,10 @@ let formElement = document.querySelector('.popup__form'),
 
 function changeVisablePopup() {
     popup.classList.toggle('popup_active');
-    profileHeaderInput.value = profileHeader.innerText;
-    profileSubtitleInput.value = profileSubtitle.innerText;
+    if(popup.classList.contains('popup_active')) {
+        profileHeaderInput.value = profileHeader.innerText;
+        profileSubtitleInput.value = profileSubtitle.innerText;
+    }
 }
 
 function handleFormSubmit(evt) {

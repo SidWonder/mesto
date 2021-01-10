@@ -1,4 +1,4 @@
-.grid__button {
+.place__button {
     padding: 0;
     border: none;
     height:18.13px;
@@ -9,10 +9,10 @@
     transition: all .55s ease-in;
 }
 
-.grid__button:hover{
+.place__button:hover{
     opacity: 0.5;
 }
 
-.grid__button:active{
+.place__button:active{
     background-image: url("../../../img/icons/heart_active.png");
 }

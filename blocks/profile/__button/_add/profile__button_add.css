@@ -4,6 +4,7 @@
     height: 50px;
     padding: 0;
     background-image: url("../../../../img/icons/add-button.png");
+    border-radius: 2px;
 }
 
 @media (min-width: 320px) and (max-width: 800px) {

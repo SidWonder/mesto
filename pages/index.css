@@ -21,12 +21,14 @@
 @import url(../blocks/profile/__subtitle/profile__subtitle.css);
 @import url(../blocks/profile/__wrapper/profile__wrapper.css);
 
-@import url(../blocks/grid/grid.css);
-@import url(../blocks/grid/__wrapper/grid__wrapper.css);
-@import url(../blocks/grid/__button/grid__button.css);
-@import url(../blocks/grid/__item/grid__item.css);
-@import url(../blocks/grid/__img/grid__img.css);
-@import url(../blocks/grid/__title/grid__title.css);
+@import url(../blocks/places/places.css);
+
+@import url(../blocks/place/place.css);
+@import url(../blocks/place/__wrapper/place__wrapper.css);
+@import url(../blocks/place/__button/place__button.css);
+@import url(../blocks/place/__item/place__item.css);
+@import url(../blocks/place/__img/place__img.css);
+@import url(../blocks/place/__title/place__title.css);
 
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/__body/popup__body.css);
