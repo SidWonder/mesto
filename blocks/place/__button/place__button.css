@@ -3,7 +3,6 @@
     border: none;
     height:18.13px;
     width: 20.76px;
-    background: transparent url("../../../img/icons/heart.png") no-repeat;
     cursor: pointer;
     outline: none;
     transition: all .55s ease-in;
@@ -13,6 +12,3 @@
     opacity: 0.5;
 }
 
-.place__button:active{
-    background-image: url("../../../img/icons/heart_active.png");
-}

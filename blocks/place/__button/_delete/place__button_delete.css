@@ -1,0 +1,6 @@
+.place__button_delete {
+    position: absolute;
+    top: 18px;
+    right: 15px;
+    background: transparent url("../../../../img/icons/trash.svg") no-repeat;
+}

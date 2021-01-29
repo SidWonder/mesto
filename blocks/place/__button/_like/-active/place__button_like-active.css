@@ -1,0 +1,7 @@
+.place__button_like-active{
+    background-image: url("../../../../../img/icons/heart_active.png");
+}
+
+.place__button_like:active{
+    background-image: url("../../../../../img/icons/heart.png");
+}
