@@ -41,26 +41,33 @@
         <p class="footer__item">&copy; 2020 Mesto Russia</p>
     </footer>
 </div>
-<div class="popup">
+<div class="popup__container">
     <div class="popup__body">
-        <div id="popup">
-            <div class="popup__content">
-                <h3 class="popup__title"></h3>
-                <form class="popup__form" name="">
-                    <input type="text" name="" id="popup__header-change" class="popup__input" placeholder="" />
-                    <input type="text" name="" id="popup__subtitle-change" class="popup__input" placeholder="" />
-                    <button type="submit" class="popup__button popup__button_save">Сохранить</button>
-                </form>
-                <button type="button" class="popup__button popup__button_close"></button>
-            </div>
+        <div class="popup popup_profile popup_disable">
+            <h3 class="popup__title">Редактировать профиль</h3>
+            <form class="popup__form" name="profile-edit">
+                <input type="text" name="profile-name" id="profile__header-change" class="popup__input" placeholder="" />
+                <input type="text" name="profile-job" id="profile__subtitle-change" class="popup__input" placeholder="" />
+                <button id="popup__profile-confirm-changes" type="submit" class="popup__button popup__button_save">Сохранить</button>
+            </form>
+            <button type="button" class="popup__button popup__button_close"></button>
         </div>
-        <template id="popup-image">
+        <div class="popup popup_place popup_disable">
+            <h3 class="popup__title">Новое место</h3>
+            <form class="popup__form" name="profile-edit">
+                <input type="text" name="place-title" id="place-title-change" class="popup__input" placeholder="Название" />
+                <input type="text" name="place-url" id="place-url-change" class="popup__input" placeholder="Ссылка на картинку" />
+                <button id="popup__add-new-place" type="submit" class="popup__button popup__button_save">Сохранить</button>
+            </form>
+            <button type="button" class="popup__button popup__button_close"></button>
+        </div>
+        <div class="popup popup_image popup_disable">
             <div class="image__content">
                 <img class="image__pic">
                 <p class="image__title"></p>
                 <button type="button" class="popup__button popup__button_close  popup__image-view"></button>
             </div>
-        </template>
+        </div>
     </div>
 </div>
 <script src="scripts/script.js"></script>

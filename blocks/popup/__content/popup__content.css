@@ -1,4 +1,4 @@
-.popup__content {
+.popup {
     box-sizing: border-box;
     /*width: 430px;*/
     /*height: 330px;*/
@@ -14,7 +14,11 @@
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
-    .popup__content{
+    .popup{
         padding: 25px 22px;
     }
+}
+
+.popup_disable {
+    display: none;
 }
