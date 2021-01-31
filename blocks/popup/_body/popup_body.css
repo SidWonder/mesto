@@ -1,4 +1,4 @@
-.popup__body {
+.popup_body {
     box-sizing: border-box;
     min-height: 100%;
     display: flex;
@@ -8,7 +8,7 @@
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
-    .popup__body {
+    .popup_body {
         padding: 0 19px;
     }
 }
