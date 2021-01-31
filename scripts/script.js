@@ -9,7 +9,7 @@ const editProfileBtn = document.querySelector(".profile__button_edit");
 const profileHeaderInput = document.querySelector('#profile__header-change');
 const profileSubtitleInput = document.querySelector('#profile__subtitle-change');
 
-const profilePop = document.querySelector('.popup_profile');
+const profilePop = document.querySelector('.popup-profile');
 const profileHeader = document.querySelector(".profile__header");
 const profileSubtitle = document.querySelector(".profile__subtitle");
 const profileSaveBtn = document.querySelector('#popup__profile-confirm-changes');
@@ -17,15 +17,15 @@ const profileSaveBtn = document.querySelector('#popup__profile-confirm-changes')
 //popup place add settings
 const addPlaceBtn = document.querySelector(".profile__button_add");
 
-const popupPlaceAdd = document.querySelector('.popup_place');
+const popupPlaceAdd = document.querySelector('.popup-place');
 const addNewPlaceBtn = document.querySelector('#popup__add-new-place');
 const placeInputTitle = document.querySelector('#place-title-change');
 const placeInputUrl = document.querySelector('#place-url-change');
 
 //popup image view settings
+const imageViewer = document.querySelector('.popup-image');
 const popupImgView = document.querySelector('.popup__img');
 const popupImgTitle = document.querySelector('.popup__subtitle');
-const imageViewer = document.querySelector('.popup_image');
 
 //initial array with cards of places
 const initialCards = [
@@ -111,20 +111,20 @@ function changeVisiblePopup(popup) {
     popMainWrapper.classList.toggle('popup_active');
     popup.classList.toggle('popup_disable');
 
-    if(popup.classList.contains('popup_profile')){
-        profileHeaderInput.value = profileHeader.innerText;
-        profileSubtitleInput.value = profileSubtitle.innerText
+    if(popup.classList.contains('popup-profile')){
+        profileHeaderInput.value = profileHeader.textContent;
+        profileSubtitleInput.value = profileSubtitle.textContent
     }
 
-    if(popup.classList.contains('popup_image')){
+    if(popup.classList.contains('popup-image')){
         popMainWrapper.classList.toggle('popup__container_image');
     }
 }
 //Function of profile edit popup
 function handleProfileFormSubmit(evt) {
     evt.preventDefault();
-    profileHeader.innerText = profileHeaderInput.value
-    profileSubtitle.innerText = profileSubtitleInput.value
+    profileHeader.textContent = profileHeaderInput.value
+    profileSubtitle.textContent = profileSubtitleInput.value
     changeVisiblePopup(profilePop);
 }
 //Function of place add popup
