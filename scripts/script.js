@@ -1,7 +1,7 @@
 "use strict";
 
 //popup main settings
-const popMainWrapper = document.querySelector(".popup__container");
+const popMainWrapper = document.querySelector(".popup-container");
 const popupCloseBtns = document.querySelectorAll('.popup__button_close');
 
 //popup profile edit settings
@@ -117,7 +117,7 @@ function changeVisiblePopup(popup) {
     }
 
     if(popup.classList.contains('popup-image')){
-        popMainWrapper.classList.toggle('popup__container_image');
+        popMainWrapper.classList.toggle('popup-container-image');
     }
 }
 //Function of profile edit popup
