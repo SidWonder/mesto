@@ -19,7 +19,7 @@ const addPlaceBtn = document.querySelector(".profile__button_add");
 const popupPlaceAdd = document.querySelector('.popup-place');
 const placeInputTitle = document.querySelector('#place-title-change');
 const placeInputUrl = document.querySelector('#place-url-change');
-
+const placesSection = document.querySelector(".places");
 //popup image view settings
 const imageViewer = document.querySelector('.popup-image');
 const popupImgView = document.querySelector('.popup__img');
@@ -74,7 +74,6 @@ function like(item) {
 //Function for create new card with place
 function createCard(obj, position = "end") {
     const placeTemplate = document.querySelector("#place").content;
-    const placesSection = document.querySelector(".places");
     const placeElement = placeTemplate.querySelector(".place").cloneNode(true);
     const placeDeleteBtn = placeElement.querySelectorAll(".place__button_delete");
     const placeImg = placeElement.querySelector(".place__img");
@@ -107,13 +106,13 @@ function removePlace(place) {
 //Function for changing visible of popup
 function changeVisiblePopup(popup) {
     popupContainer.classList.toggle('popup_active');
-    popup.classList.toggle('popup_disable');
-
+    popup.classList.toggle('popup_active');
+//Комментарий для ревьюера. Вы писали "этот код должен быть там, где обрабатываете клик по Кнопке Открытия попапа". Этот код и лежит в функции, которая обрабатывает открытие попапа по клику
     if(popup.classList.contains('popup-profile')){
         profileHeaderInput.value = profileHeader.textContent;
         profileSubtitleInput.value = profileSubtitle.textContent
     }
-
+    //Комментарий для ревьюера. Данный участок кода необходим, так как при открытии попапа с миниатюрой изображения меняется оверлей на более темный
     if(popup.classList.contains('popup-image')){
         popupContainer.classList.toggle('popup-container-image');
     }
@@ -132,7 +131,6 @@ function handlePlaceFormSubmit(evt){
             name: placeInputTitle.value,
             link: placeInputUrl.value,
         };
-        initialCards.unshift(newPlaceObj);
         createCard(newPlaceObj, "start");
 
     placeInputTitle.value = '';
