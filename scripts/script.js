@@ -10,17 +10,13 @@ const popupFormPlaceAdd = document.querySelector('#place-add');
 const editProfileBtn = document.querySelector(".profile__button_edit");
 const profileHeaderInput = document.querySelector('#profile__header-change');
 const profileSubtitleInput = document.querySelector('#profile__subtitle-change');
-
 const profilePop = document.querySelector('.popup-profile');
 const profileHeader = document.querySelector(".profile__header");
 const profileSubtitle = document.querySelector(".profile__subtitle");
-const profileSaveBtn = document.querySelector('#popup__profile-confirm-changes');
 
 //popup place add settings
 const addPlaceBtn = document.querySelector(".profile__button_add");
-
 const popupPlaceAdd = document.querySelector('.popup-place');
-const addNewPlaceBtn = document.querySelector('#popup__add-new-place');
 const placeInputTitle = document.querySelector('#place-title-change');
 const placeInputUrl = document.querySelector('#place-url-change');
 
