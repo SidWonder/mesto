@@ -1,8 +1,10 @@
 "use strict";
 
 //popup main settings
-const popMainWrapper = document.querySelector(".popup-container");
+const popupContainer = document.querySelector(".popup-container");
 const popupCloseBtns = document.querySelectorAll('.popup__button_close');
+const popupFormProfileEdit = document.querySelector('#profile-edit');
+const popupFormPlaceAdd = document.querySelector('#place-add');
 
 //popup profile edit settings
 const editProfileBtn = document.querySelector(".profile__button_edit");
@@ -67,14 +69,14 @@ const initialCards = [
 //Rendering cards on first start
 (function renderCards() {
     const placesArr = [...initialCards]; // создаю массив с карточками мест в который предварительно копираю содержимое массива с начальными карточками. Я буду работать с этим массмвом = добавлять, изменять, удалять места без воздействия на первоначальный массив
-    placesArr.forEach((item) => addNewPlace(item));
+    placesArr.forEach((item) => createCard(item));
 })();
 //Function for likes/dislikes
 function like(item) {
     item.classList.toggle("place__button_like-active");
 }
 //Function for create new card with place
-function addNewPlace(obj, position = "end") {
+function createCard(obj, position = "end") {
     const placeTemplate = document.querySelector("#place").content;
     const placesSection = document.querySelector(".places");
     const placeElement = placeTemplate.querySelector(".place").cloneNode(true);
@@ -108,7 +110,7 @@ function removePlace(place) {
 //Functions for popups
 //Function for changing visible of popup
 function changeVisiblePopup(popup) {
-    popMainWrapper.classList.toggle('popup_active');
+    popupContainer.classList.toggle('popup_active');
     popup.classList.toggle('popup_disable');
 
     if(popup.classList.contains('popup-profile')){
@@ -117,7 +119,7 @@ function changeVisiblePopup(popup) {
     }
 
     if(popup.classList.contains('popup-image')){
-        popMainWrapper.classList.toggle('popup-container-image');
+        popupContainer.classList.toggle('popup-container-image');
     }
 }
 //Function of profile edit popup
@@ -130,22 +132,13 @@ function handleProfileFormSubmit(evt) {
 //Function of place add popup
 function handlePlaceFormSubmit(evt){
     evt.preventDefault();
-    const placeName = placeInputTitle.value;
-    const placeUrl = placeInputUrl.value;
-    if (!placeName || !placeUrl) {
-        alert(
-            "Введите название и ссылку на изображение нового места или закройте окно без созранения изменений"
-        );
-        return;
-    } else {
         const newPlaceObj = {
-            name: placeName,
-            link: placeUrl,
+            name: placeInputTitle.value,
+            link: placeInputUrl.value,
         };
-        console.log(newPlaceObj)
         initialCards.unshift(newPlaceObj);
-        addNewPlace(newPlaceObj, "start");
-    }
+        createCard(newPlaceObj, "start");
+
     placeInputTitle.value = '';
     placeInputUrl.value = '';
     changeVisiblePopup(popupPlaceAdd);
@@ -160,8 +153,8 @@ function imageView(src, title) {
 
 //Event Listeners
 //Make 1 function for every close buttons of popup
+popupFormProfileEdit.addEventListener('submit', handleProfileFormSubmit);
+popupFormPlaceAdd.addEventListener('submit', handlePlaceFormSubmit)
 popupCloseBtns.forEach((item) => item.addEventListener('click', () => changeVisiblePopup(item.parentNode)));
-profileSaveBtn.addEventListener('click', handleProfileFormSubmit)
 editProfileBtn.addEventListener('click', () =>  changeVisiblePopup(profilePop));
 addPlaceBtn.addEventListener('click', () => changeVisiblePopup(popupPlaceAdd));
-addNewPlaceBtn.addEventListener('click', handlePlaceFormSubmit)
