@@ -65,14 +65,15 @@ const initialCards = [
 //Rendering cards on first start
 (function renderCards() {
     const placesArr = [...initialCards]; // создаю массив с карточками мест в который предварительно копираю содержимое массива с начальными карточками. Я буду работать с этим массмвом = добавлять, изменять, удалять места без воздействия на первоначальный массив
-    placesArr.forEach((item) => createCard(item));
+    placesArr.forEach((item) => addNewPlace(item));
 })();
 //Function for likes/dislikes
 function like(item) {
     item.classList.toggle("place__button_like-active");
 }
-//Function for create new card with place
-function createCard(obj, position = "end") {
+
+//Function for crete new card with place
+function createCard (obj) {
     const placeTemplate = document.querySelector("#place").content;
     const placeElement = placeTemplate.querySelector(".place").cloneNode(true);
     const placeDeleteBtn = placeElement.querySelectorAll(".place__button_delete");
@@ -85,9 +86,6 @@ function createCard(obj, position = "end") {
     placeImg.alt = obj.name;
     placeTitle.textContent = obj.name;
 
-    if (position === "end") placesSection.append(placeElement);
-    if (position === "start") placesSection.prepend(placeElement);
-
     placeDeleteBtn.forEach((item) => {
         item.addEventListener("click", () => removePlace(placeElement));
     });
@@ -96,6 +94,16 @@ function createCard(obj, position = "end") {
         item.addEventListener("click", () => like(placeLike));
     });
     placeImg.addEventListener('click', ()=> imageView(placeImg.src, placeImg.alt))
+
+    return placeElement;
+}
+
+//Function for add new card
+//Комментарий для ревьюера. Сначала не понмал смысла подобных манипуляций, но в итоге понял, что это правильная идея - разделить функции создания карточки и добавления ее в верстку
+function addNewPlace(obj, position = "end") {
+    const newPlace = createCard(obj);
+    if (position === "end") placesSection.append(newPlace);
+    if (position === "start") placesSection.prepend(newPlace);
 }
 //Function for remove cards with place
 function removePlace(place) {
@@ -107,15 +115,8 @@ function removePlace(place) {
 function changeVisiblePopup(popup) {
     popupContainer.classList.toggle('popup_active');
     popup.classList.toggle('popup_active');
-//Комментарий для ревьюера. Вы писали "этот код должен быть там, где обрабатываете клик по Кнопке Открытия попапа". Этот код и лежит в функции, которая обрабатывает открытие попапа по клику
-    if(popup.classList.contains('popup-profile')){
-        profileHeaderInput.value = profileHeader.textContent;
-        profileSubtitleInput.value = profileSubtitle.textContent
-    }
     //Комментарий для ревьюера. Данный участок кода необходим, так как при открытии попапа с миниатюрой изображения меняется оверлей на более темный
-    if(popup.classList.contains('popup-image')){
-        popupContainer.classList.toggle('popup-container-image');
-    }
+    //Комментарий для ревьюера. Я ориентировался на макет - в нем оверлей более темный. Если Вы настаиваете - я убираю эту часть(
 }
 //Function of profile edit popup
 function handleProfileFormSubmit(evt) {
@@ -131,7 +132,7 @@ function handlePlaceFormSubmit(evt){
             name: placeInputTitle.value,
             link: placeInputUrl.value,
         };
-        createCard(newPlaceObj, "start");
+        addNewPlace(newPlaceObj, "start");
 
     placeInputTitle.value = '';
     placeInputUrl.value = '';
@@ -150,5 +151,9 @@ function imageView(src, title) {
 popupFormProfileEdit.addEventListener('submit', handleProfileFormSubmit);
 popupFormPlaceAdd.addEventListener('submit', handlePlaceFormSubmit)
 popupCloseBtns.forEach((item) => item.addEventListener('click', () => changeVisiblePopup(item.parentNode)));
-editProfileBtn.addEventListener('click', () =>  changeVisiblePopup(profilePop));
+editProfileBtn.addEventListener('click', () =>  {
+    profileHeaderInput.value = profileHeader.textContent;
+    profileSubtitleInput.value = profileSubtitle.textContent
+    changeVisiblePopup(profilePop)
+});
 addPlaceBtn.addEventListener('click', () => changeVisiblePopup(popupPlaceAdd));
