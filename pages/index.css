@@ -48,3 +48,7 @@
 @import url(../blocks/popup/__img/popup__img.css);
 @import url(../blocks/popup/__subtitle/popup__subtitle.css);
 
+@import url(../blocks/form/form.css);
+@import url(../blocks/form/__input/form__input.css);
+@import url(../blocks/form/__error/form__error.css);
+@import url(../blocks/form/__error/_visible/form__error_visible.css);

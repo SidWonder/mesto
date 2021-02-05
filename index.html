@@ -44,9 +44,9 @@
 <div class="popup-container">
         <div class="popup popup-profile">
             <h3 class="popup__title">Редактировать профиль</h3>
-            <form id="profile-edit" class="popup__form" name="profile-edit" novalidate>
+            <form id="profile-edit" class="form" name="profile-edit" novalidate>
                 <label  class="form__label">
-                    <input class="popup__input"
+                    <input class="form__input"
                            id="profile__header-change"
                            type="text"
                            name="profile-name"
@@ -55,10 +55,10 @@
                            maxlength="40"
                            required
                     />
-                    <span class="form__error" id="profile-name-error"></span>
+                    <span class="form__error" id="profile__header-change-error"></span>
                 </label>
                 <label class="form__label">
-                    <input class="popup__input"
+                    <input class="form__input"
                            id="profile__subtitle-change"
                            type="text"
                            name="profile-job"
@@ -74,7 +74,7 @@
         </div>
         <div class="popup popup-place">
             <h3 class="popup__title">Новое место</h3>
-            <form id="place-add" class="popup__form" name="place-add" novalidate>
+            <form id="place-add" class="form" name="place-add" novalidate>
                 <label class="form__label">
                     <input id="place-title-change"
                            class="popup__input"
@@ -95,7 +95,7 @@
                            minlength="1"
                            required
                     />
-                    <span class="form__error" id="place-url-error"></span>
+                    <span class="form__error" id="place-url-change-error"></span>
                 </label>
                 <button id="popup__add-new-place" type="submit" class="popup__button popup__button_save">Создать</button>
             </form>
@@ -108,5 +108,6 @@
         </div>
 </div>
 <script src="scripts/script.js"></script>
+<script src="scripts/validate.js"></script>
 </body>
 </html>
