@@ -38,24 +38,65 @@
         </section>
     </main>
     <footer class="footer">
-        <p class="footer__item">&copy; 2020 Mesto Russia</p>
+        <p class="footer__item">&copy; 2021 Mesto Russia</p>
     </footer>
 </div>
 <div class="popup-container">
         <div class="popup popup-profile">
             <h3 class="popup__title">Редактировать профиль</h3>
-            <form id="profile-edit" class="popup__form" name="profile-edit">
-                <input type="text" name="profile-name" id="profile__header-change" class="popup__input" placeholder="" />
-                <input type="text" name="profile-job" id="profile__subtitle-change" class="popup__input" placeholder="" />
+            <form id="profile-edit" class="popup__form" name="profile-edit" novalidate>
+                <label  class="form__label">
+                    <input class="popup__input"
+                           id="profile__header-change"
+                           type="text"
+                           name="profile-name"
+                           placeholder=""
+                           minlength="2"
+                           maxlength="40"
+                           required
+                    />
+                    <span class="form__error" id="profile-name-error"></span>
+                </label>
+                <label class="form__label">
+                    <input class="popup__input"
+                           id="profile__subtitle-change"
+                           type="text"
+                           name="profile-job"
+                           minlength="2"
+                           maxlength="200"
+                           required
+                           placeholder="" />
+                    <span class="form__error"  id="profile__subtitle-error"></span>
+                </label>
                 <button id="popup__profile-confirm-changes" type="submit" class="popup__button popup__button_save">Сохранить</button>
             </form>
             <button type="button" class="popup__button popup__button_close"></button>
         </div>
         <div class="popup popup-place">
             <h3 class="popup__title">Новое место</h3>
-            <form id="place-add" class="popup__form" name="place-add">
-                <input type="text" name="place-title" id="place-title-change" class="popup__input" placeholder="Название" />
-                <input type="text" name="place-url" id="place-url-change" class="popup__input" placeholder="Ссылка на картинку" />
+            <form id="place-add" class="popup__form" name="place-add" novalidate>
+                <label class="form__label">
+                    <input id="place-title-change"
+                           class="popup__input"
+                           type="text"
+                           name="place-title"
+                           placeholder="Название"
+                           minlength="1"
+                           maxlength="30"
+                           required/>
+                    <span class="form__error" id="place-title-error"></span>
+                </label>
+                <label class="form__label">
+                    <input class="popup__input"
+                           type="url"
+                           id="place-url-change"
+                           name="place-url"
+                           placeholder="Ссылка на картинку"
+                           minlength="1"
+                           required
+                    />
+                    <span class="form__error" id="place-url-error"></span>
+                </label>
                 <button id="popup__add-new-place" type="submit" class="popup__button popup__button_save">Создать</button>
             </form>
             <button type="button" class="popup__button popup__button_close"></button>
