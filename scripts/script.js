@@ -97,7 +97,7 @@ function createCard (obj) {
     placeLikes.forEach((item) => {
         item.addEventListener("click", () => like(placeLike));
     });
-    placeImg.addEventListener('click', ()=> imgView(placeImg.src, placeImg.alt));
+    placeImg.addEventListener('click', ()=> imgView(obj.link, obj.name));
     return placeElement;
 }
 
@@ -116,16 +116,17 @@ function removePlace(place) {
 //Function for changing visible of popup
 function showPopup(popup){
     popup.classList.add('popup_active');
-    document.addEventListener('keydown', (evt)=> hidePopupByKey(evt.keyCode))
+    document.addEventListener('keydown', hidePopupByKey)
 }
 
 function hidePopup(){
     document.querySelector('.popup_active').classList.remove('popup_active');
-    document.removeEventListener('keydown', (evt)=> hidePopupByKey(evt.keyCode))
+    document.removeEventListener('keydown', hidePopupByKey)
 }
 
-function hidePopupByKey(key) {
-if(key === btnEsc){
+function hidePopupByKey(evt) {
+    console.log(evt);
+    if(evt.keyCode === btnEsc){
     hidePopup();
 }
 }
@@ -163,8 +164,6 @@ function handlePlaceFormSubmit(evt){
         };
         addNewPlace(newPlaceObj, "start");
 
-    // placeInputTitle.value = '';
-    // placeInputUrl.value = '';
     placeAddForm.reset();
     hidePopup();
 }
