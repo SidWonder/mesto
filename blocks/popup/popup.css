@@ -1,15 +1,23 @@
 .popup {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0, 0.5);
+    top: 0;
+    left: 0;
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 34px 36px;
     box-sizing: border-box;
-    position: relative;
-    background-color: #fff;
-    color: black;
-    padding: 34px 36px 37px 36px;
-display: none;
-    justify-content: space-between;
 }
 
 @media (min-width: 320px) and (max-width: 767px) {
-    .popup{
-        padding: 25px 22px;
+    .popup {
+        padding: 0 19px;
     }
 }

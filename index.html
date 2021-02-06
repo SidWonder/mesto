@@ -17,8 +17,7 @@
         <section class="profile">
             <img class="profile__avatar" src="./img/profile/profile-avatar.png" alt="Аватар пользователя" />
             <div class="profile__wrapper">
-                <h1 class="profile__header">Жак-Ив Кусто
-                </h1>
+                <h1 class="profile__header">Жак-Ив Кусто</h1>
                 <button class="profile__button profile__button_edit" type="button" aria-label="Редактировать профиль" ></button>
                 <p class="profile__subtitle">Исследователь океана</p>
             </div>
@@ -41,8 +40,8 @@
         <p class="footer__item">&copy; 2021 Mesto Russia</p>
     </footer>
 </div>
-<div class="popup-container">
         <div class="popup popup-profile">
+            <div class="popup__container">
             <h3 class="popup__title">Редактировать профиль</h3>
             <form id="profile-edit" class="form" name="profile-edit" novalidate>
                 <label  class="form__label">
@@ -66,28 +65,32 @@
                            maxlength="200"
                            required
                            placeholder="" />
-                    <span class="form__error"  id="profile__subtitle-error"></span>
+                    <span class="form__error"  id="profile__subtitle-change-error"></span>
                 </label>
-                <button id="popup__profile-confirm-changes" type="submit" class="popup__button popup__button_save">Сохранить</button>
+                <button id="popup__profile-confirm-changes" type="submit" class="form__button">Сохранить</button>
             </form>
             <button type="button" class="popup__button popup__button_close"></button>
         </div>
+        </div>
         <div class="popup popup-place">
+            <div class="popup__container">
             <h3 class="popup__title">Новое место</h3>
             <form id="place-add" class="form" name="place-add" novalidate>
                 <label class="form__label">
                     <input id="place-title-change"
-                           class="popup__input"
+                           class="form__input"
                            type="text"
+                           value=""
                            name="place-title"
                            placeholder="Название"
                            minlength="1"
                            maxlength="30"
                            required/>
-                    <span class="form__error" id="place-title-error"></span>
+                    <span class="form__error" id="place-title-change-error"></span>
                 </label>
                 <label class="form__label">
-                    <input class="popup__input"
+                    <input class="form__input"
+                           value=""
                            type="url"
                            id="place-url-change"
                            name="place-url"
@@ -97,16 +100,18 @@
                     />
                     <span class="form__error" id="place-url-change-error"></span>
                 </label>
-                <button id="popup__add-new-place" type="submit" class="popup__button popup__button_save">Создать</button>
+                <button  id="popup__add-new-place" type="submit" class="form__button form__button_disabled">Создать</button>
             </form>
             <button type="button" class="popup__button popup__button_close"></button>
         </div>
+        </div>
         <div class="popup popup-image">
+            <div class="popup__container popup__container_image">
                 <img class="popup__img" src="#" alt="#">
                 <p class="popup__subtitle"></p>
                 <button type="button" class="popup__button popup__button_close popup__image-view"></button>
         </div>
-</div>
+        </div>
 <script src="scripts/script.js"></script>
 <script src="scripts/validate.js"></script>
 </body>

@@ -2,7 +2,7 @@
     font-size: 12px;
     color: #FF0000;
     opacity: 0;
-    top: calc(100% + 6px);
-    left: 0;
     transition: 0.3s;
+    white-space: normal;
+    padding-top: 5px;
 }

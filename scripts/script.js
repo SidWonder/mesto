@@ -1,18 +1,20 @@
 "use strict";
 
 //popup main settings
-const popupContainer = document.querySelector(".popup-container");
-const popupCloseBtns = document.querySelectorAll('.popup__button_close');
-const popupFormProfileEdit = document.querySelector('#profile-edit');
-const popupFormPlaceAdd = document.querySelector('#place-add');
+const popupsList = Array.from(document.querySelectorAll('.popup'));
+//Keycodes for needed btn
+const btnEsc = 27;
 
 //popup profile edit settings
 const editProfileBtn = document.querySelector(".profile__button_edit");
+
 const profileHeaderInput = document.querySelector('#profile__header-change');
 const profileSubtitleInput = document.querySelector('#profile__subtitle-change');
 const profilePop = document.querySelector('.popup-profile');
 const profileHeader = document.querySelector(".profile__header");
 const profileSubtitle = document.querySelector(".profile__subtitle");
+const closeEditProfile = profilePop.querySelector('.popup__button_close');
+const profileForm = profilePop.querySelector('.form');
 
 //popup place add settings
 const addPlaceBtn = document.querySelector(".profile__button_add");
@@ -20,10 +22,14 @@ const popupPlaceAdd = document.querySelector('.popup-place');
 const placeInputTitle = document.querySelector('#place-title-change');
 const placeInputUrl = document.querySelector('#place-url-change');
 const placesSection = document.querySelector(".places");
+const closeAddPlace = popupPlaceAdd.querySelector('.popup__button_close');
+const placeAddForm = popupPlaceAdd.querySelector('.form');
 //popup image view settings
+const imageViewerPopup = document.querySelector('.popup-image');
 const imageViewer = document.querySelector('.popup-image');
 const popupImgView = document.querySelector('.popup__img');
 const popupImgTitle = document.querySelector('.popup__subtitle');
+const imageViewerClose = imageViewerPopup.querySelector('.popup__button_close');
 
 //initial array with cards of places
 const initialCards = [
@@ -85,21 +91,17 @@ function createCard (obj) {
     placeImg.src = obj.link;
     placeImg.alt = obj.name;
     placeTitle.textContent = obj.name;
-
     placeDeleteBtn.forEach((item) => {
         item.addEventListener("click", () => removePlace(placeElement));
     });
-
     placeLikes.forEach((item) => {
         item.addEventListener("click", () => like(placeLike));
     });
-    placeImg.addEventListener('click', ()=> imageView(placeImg.src, placeImg.alt))
-
+    placeImg.addEventListener('click', ()=> imgView(placeImg.src, placeImg.alt));
     return placeElement;
 }
 
 //Function for add new card
-//Комментарий для ревьюера. Сначала не понмал смысла подобных манипуляций, но в итоге понял, что это правильная идея - разделить функции создания карточки и добавления ее в верстку
 function addNewPlace(obj, position = "end") {
     const newPlace = createCard(obj);
     if (position === "end") placesSection.append(newPlace);
@@ -112,20 +114,47 @@ function removePlace(place) {
 
 //Functions for popups
 //Function for changing visible of popup
-function changeVisiblePopup(popup) {
-    popupContainer.classList.toggle('popup_active');
-    popup.classList.toggle('popup_active');
-    //Комментарий для ревьюера. Данный участок кода необходим, так как при открытии попапа с миниатюрой изображения меняется оверлей на более темный
-    //Комментарий для ревьюера. Я ориентировался на макет - в нем оверлей более темный. Если Вы настаиваете - я убираю эту часть(
+function showPopup(popup){
+    popup.classList.add('popup_active');
+    document.addEventListener('keydown', (evt)=> hidePopupByKey(evt.keyCode))
 }
+
+function hidePopup(){
+    document.querySelector('.popup_active').classList.remove('popup_active');
+    document.removeEventListener('keydown', (evt)=> hidePopupByKey(evt.keyCode))
+}
+
+function hidePopupByKey(key) {
+if(key === btnEsc){
+    hidePopup();
+}
+}
+
+function hidePopupByOutsideClick(target, curTarget){
+    if(target === curTarget){
+        hidePopup();
+    }
+}
+
 //Function of profile edit popup
+function editProfilePopupShow() {
+    showPopup(profilePop);
+}
+function editProfile(){
+    editProfilePopupShow();
+    profileHeaderInput.value= profileHeader.textContent;
+    profileSubtitleInput.value= profileSubtitle.textContent;
+}
 function handleProfileFormSubmit(evt) {
     evt.preventDefault();
     profileHeader.textContent = profileHeaderInput.value
     profileSubtitle.textContent = profileSubtitleInput.value
-    changeVisiblePopup(profilePop);
+    hidePopup();
 }
 //Function of place add popup
+function addPlace(){
+    showPopup(popupPlaceAdd);
+}
 function handlePlaceFormSubmit(evt){
     evt.preventDefault();
         const newPlaceObj = {
@@ -134,26 +163,36 @@ function handlePlaceFormSubmit(evt){
         };
         addNewPlace(newPlaceObj, "start");
 
-    placeInputTitle.value = '';
-    placeInputUrl.value = '';
-    changeVisiblePopup(popupPlaceAdd);
+    // placeInputTitle.value = '';
+    // placeInputUrl.value = '';
+    placeAddForm.reset();
+    hidePopup();
 }
 //Function of image view popup
-function imageView(src, title) {
+function imgViewPopupShow(){
+    showPopup(imageViewerPopup)
+}
+function imgView(src, title){
     popupImgView.src = src;
     popupImgView.alt = title;
     popupImgTitle.textContent = title;
-    changeVisiblePopup(imageViewer);
+    imgViewPopupShow();
+}
+function hideImgViewer(){
+    popupImgView.src = '';
+    popupImgView.alt = '';
+    popupImgTitle.textContent = '';
+    hidePopup();
 }
 
 //Event Listeners
-//Make 1 function for every close buttons of popup
-popupFormProfileEdit.addEventListener('submit', handleProfileFormSubmit);
-popupFormPlaceAdd.addEventListener('submit', handlePlaceFormSubmit)
-popupCloseBtns.forEach((item) => item.addEventListener('click', () => changeVisiblePopup(item.parentNode)));
-editProfileBtn.addEventListener('click', () =>  {
-    profileHeaderInput.value = profileHeader.textContent;
-    profileSubtitleInput.value = profileSubtitle.textContent
-    changeVisiblePopup(profilePop)
-});
-addPlaceBtn.addEventListener('click', () => changeVisiblePopup(popupPlaceAdd));
+editProfileBtn.addEventListener('click', editProfile);
+closeEditProfile.addEventListener('click', hidePopup);
+profileForm.addEventListener('submit', handleProfileFormSubmit);
+addPlaceBtn.addEventListener('click', addPlace);
+closeAddPlace.addEventListener('click', hidePopup);
+placeAddForm.addEventListener('submit', handlePlaceFormSubmit);
+imageViewerClose.addEventListener('click', hideImgViewer);
+popupsList.forEach((popup)=>
+    popup.addEventListener('click', (evt)=>
+        hidePopupByOutsideClick(evt.target, evt.currentTarget)));
