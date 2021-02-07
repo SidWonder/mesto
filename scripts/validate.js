@@ -16,8 +16,8 @@ const showInputError = (formElement, inputElement, errorMessage, settingsForVali
 
 const hideInputError = (formElement, inputElement, settingsForValidation) => {
     const errorElement = formElement.querySelector(`#${inputElement.id}-error`);
-    inputElement.classList.remove('form__input_type_invalid');
-    errorElement.classList.remove('form__error_visible');
+    inputElement.classList.remove(settingsForValidation.inputInvalidClass);
+    errorElement.classList.remove(settingsForValidation.errorClass);
     errorElement.textContent = '';
 };
 
@@ -25,7 +25,7 @@ function checkInputValidity(formElement, inputElement, settingsForValidation) {
     if (!inputElement.validity.valid) {
         showInputError(formElement, inputElement, inputElement.validationMessage, settingsForValidation);
     } else {
-        hideInputError(formElement, inputElement);
+        hideInputError(formElement, inputElement, settingsForValidation);
     }
 };
 
