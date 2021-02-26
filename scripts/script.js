@@ -1,5 +1,20 @@
 "use strict";
 
+//imports
+import { Card } from './card.js';
+import { FormValidator } from './validate.js';
+
+
+//object with classes for validation
+const settingsForValidation = {
+    formSelector: '.form',
+    inputSelector: '.form__input',
+    inputInvalidClass: 'form__input_type_invalid',
+    submitButtonSelector: '.form__button',
+    inactiveButtonClass: 'form__button_disabled',
+    errorClass: 'form__error_visible',
+};
+
 //popup main settings
 const popupsList = Array.from(document.querySelectorAll('.popup'));
 //Keycodes for needed btn
@@ -67,49 +82,11 @@ const initialCards = [
 
 //Functions
 
-//Functions for cards
-//Rendering cards on first start
-(function renderCards() {
-    const placesArr = [...initialCards]; // создаю массив с карточками мест в который предварительно копираю содержимое массива с начальными карточками. Я буду работать с этим массмвом = добавлять, изменять, удалять места без воздействия на первоначальный массив
-    placesArr.forEach((item) => addNewPlace(item));
-})();
-//Function for likes/dislikes
-function like(item) {
-    item.classList.toggle("place__button_like-active");
-}
-
-//Function for crete new card with place
-function createCard (obj) {
-    const placeTemplate = document.querySelector("#place").content;
-    const placeElement = placeTemplate.querySelector(".place").cloneNode(true);
-    const placeDeleteBtn = placeElement.querySelectorAll(".place__button_delete");
-    const placeImg = placeElement.querySelector(".place__img");
-    const placeLike = placeElement.querySelector(".place__button_like");
-    const placeLikes = placeElement.querySelectorAll(".place__button_like");
-    const placeTitle = placeElement.querySelector(".place__title");
-
-    placeImg.src = obj.link;
-    placeImg.alt = obj.name;
-    placeTitle.textContent = obj.name;
-    placeDeleteBtn.forEach((item) => {
-        item.addEventListener("click", () => removePlace(placeElement));
-    });
-    placeLikes.forEach((item) => {
-        item.addEventListener("click", () => like(placeLike));
-    });
-    placeImg.addEventListener('click', ()=> imgView(obj.link, obj.name));
-    return placeElement;
-}
-
 //Function for add new card
-function addNewPlace(obj, position = "end") {
-    const newPlace = createCard(obj);
-    if (position === "end") placesSection.append(newPlace);
-    if (position === "start") placesSection.prepend(newPlace);
-}
-//Function for remove cards with place
-function removePlace(place) {
-    place.remove();
+function addNewPlace(obj) {
+    const newPlace = new Card(obj);
+    const cardElement = newPlace.createCard();
+   placesSection.prepend(cardElement);
 }
 
 //Functions for popups
@@ -125,7 +102,6 @@ function hidePopup(){
 }
 
 function hidePopupByKey(evt) {
-    console.log(evt);
     if(evt.keyCode === btnEsc){
     hidePopup();
 }
@@ -140,6 +116,8 @@ function hidePopupByOutsideClick(target, curTarget){
 //Function of profile edit popup
 function editProfilePopupShow() {
     showPopup(profilePop);
+    const popupEditFormValidator = new FormValidator(profilePop, settingsForValidation)
+    popupEditFormValidator._enableValidation();
 }
 function editProfile(){
     editProfilePopupShow();
@@ -155,6 +133,8 @@ function handleProfileFormSubmit(evt) {
 //Function of place add popup
 function addPlace(){
     showPopup(popupPlaceAdd);
+    const popupEditFormValidator = new FormValidator(profilePop, settingsForValidation)
+    popupEditFormValidator._enableValidation();
 }
 function handlePlaceFormSubmit(evt){
     evt.preventDefault();
@@ -167,7 +147,7 @@ function handlePlaceFormSubmit(evt){
     placeAddForm.reset();
     hidePopup();
 }
-//Function of image view popup
+// Function of image view popup
 function imgViewPopupShow(){
     showPopup(imageViewerPopup)
 }
@@ -195,3 +175,13 @@ imageViewerClose.addEventListener('click', hideImgViewer);
 popupsList.forEach((popup)=>
     popup.addEventListener('click', (evt)=>
         hidePopupByOutsideClick(evt.target, evt.currentTarget)));
+
+
+function renderClassCard() {
+    const placesArr = [...initialCards]; // создаю массив с карточками мест в который предварительно копирую содержимое массива с начальными карточками.
+    // Я буду работать с этим массмвом = добавлять, изменять, удалять места без воздействия на первоначальный массив
+    placesArr.forEach((item) => {
+        addNewPlace(item, '#place');
+})
+}
+renderClassCard();
