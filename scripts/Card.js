@@ -1,3 +1,5 @@
+import { imgView } from './index.js';
+
 //Class for create card
 
 class Card {
@@ -18,16 +20,17 @@ class Card {
 
     createCard(){
         this._element = this._getTemplate();
-
-        this._element.querySelector(".place__img").src = this._data.link;
-        this._element.querySelector(".place__img").alt = this._data.name;
-        this._element.querySelector(".place__title").textContent = this._data.name;
+        this._elementImg = this._element.querySelector(".place__img");
+        this._elementPlaceTitle = this._element.querySelector(".place__title");
+        this._elementImg.src = this._data.link;
+        this._elementImg.alt = this._data.name;
+        this._elementPlaceTitle.textContent = this._data.name;
 
         this._setEventListeners();
 
         return this._element;
     }
-
+//заменить на классовые перемменные как в createCard
     _setEventListeners() {
         this._element.querySelector(".place__button_like").addEventListener('click', () => {
             this._handleLikeButton();

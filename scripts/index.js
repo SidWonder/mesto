@@ -1,8 +1,8 @@
 "use strict";
 
 //imports
-import { Card } from './card.js';
-import { FormValidator } from './validate.js';
+import { Card } from './Card.js';
+import { FormValidator } from './FormValidator.js';
 
 
 //object with classes for validation
@@ -19,6 +19,8 @@ const settingsForValidation = {
 const popupsList = Array.from(document.querySelectorAll('.popup'));
 //Keycodes for needed btn
 const btnEsc = 27;
+
+const forms = document.querySelectorAll('.form');
 
 //popup profile edit settings
 const editProfileBtn = document.querySelector(".profile__button_edit");
@@ -116,8 +118,7 @@ function hidePopupByOutsideClick(target, curTarget){
 //Function of profile edit popup
 function editProfilePopupShow() {
     showPopup(profilePop);
-    const popupEditFormValidator = new FormValidator(profilePop, settingsForValidation)
-    popupEditFormValidator._enableValidation();
+
 }
 function editProfile(){
     editProfilePopupShow();
@@ -133,8 +134,7 @@ function handleProfileFormSubmit(evt) {
 //Function of place add popup
 function addPlace(){
     showPopup(popupPlaceAdd);
-    const popupEditFormValidator = new FormValidator(profilePop, settingsForValidation)
-    popupEditFormValidator._enableValidation();
+
 }
 function handlePlaceFormSubmit(evt){
     evt.preventDefault();
@@ -151,7 +151,7 @@ function handlePlaceFormSubmit(evt){
 function imgViewPopupShow(){
     showPopup(imageViewerPopup)
 }
-function imgView(src, title){
+export function imgView(src, title){
     popupImgView.src = src;
     popupImgView.alt = title;
     popupImgTitle.textContent = title;
@@ -184,4 +184,17 @@ function renderClassCard() {
         addNewPlace(item, '#place');
 })
 }
+
+const enablevl= () => {
+    console.log(forms);
+    forms.forEach((form)=> {
+        console.log(form);
+        const formValid = new FormValidator(form, settingsForValidation);
+        formValid._enableValidation();
+    })
+};
+enablevl ()
+
+
 renderClassCard();
+
