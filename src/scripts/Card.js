@@ -1,11 +1,12 @@
-import { imgView } from './index.js';
+//import { imgView } from './index.js';
 
 //Class for create card
 
-class Card {
-    constructor(data, templateSelector = '#place') {
+export class Card {
+    constructor(data, templateSelector = '#place', { handleCardClick }) {
         this._data = data;
         this._templateSelector = templateSelector;
+        this._handleCardClick = handleCardClick;
     }
 
     _getTemplate(){
@@ -22,9 +23,9 @@ class Card {
         this._element = this._getTemplate();
         this._elementImg = this._element.querySelector(".place__img");
         this._elementPlaceTitle = this._element.querySelector(".place__title");
-        this._elementImg.src = this._data.link;
-        this._elementImg.alt = this._data.name;
-        this._elementPlaceTitle.textContent = this._data.name;
+        this._elementImg.src = this._data.link || this._data['place-url'];
+        this._elementImg.alt = this._data.name || this._data['place-title'];
+        this._elementPlaceTitle.textContent = this._data.name || this._data['place-title'];
 
         this._setEventListeners();
 
@@ -32,6 +33,7 @@ class Card {
     }
 //заменить на классовые перемменные как в createCard
     _setEventListeners() {
+
         this._element.querySelector(".place__button_like").addEventListener('click', () => {
             this._handleLikeButton();
         })
@@ -39,7 +41,7 @@ class Card {
             this._handleDeleteButton();
         })
         this._element.querySelector(".place__img").addEventListener('click', ()=> {
-            this._handleImageViewerPopup();
+            this._handleCardClick(this._data);
         })
     }
 
@@ -52,8 +54,6 @@ class Card {
     }
 
     _handleImageViewerPopup(){
-        imgView(this._data.link, this._data.name);
+       // imgView(this._data.link, this._data.name);
     }
 }
-
-export { Card };

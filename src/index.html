@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mesto</title>
-    <link rel="stylesheet" href="./pages/index.css" />
 </head>
 <body class="root">
 <div class="page">
@@ -24,16 +23,7 @@
             <button class="profile__button profile__button_add" type="button" aria-label="Добавить что-то новенькое" ></button>
         </section>
         <section class="places">
-            <template id = "place">
-                <article class="place">
-                    <img src="#" alt="#" loading="lazy" class="place__img" />
-                    <div class="place__wrapper">
-                        <h3 class="place__title"></h3>
-                        <button type="button" class="place__button place__button_like" aria-label="Лайкнуть эту шнягу"></button>
-                    </div>
-                    <button type="button" class="place__button place__button_delete" aria-label="Удалить карточку"></button>
-                </article>
-            </template>
+
         </section>
     </main>
     <footer class="footer">
@@ -112,7 +102,16 @@
                 <button type="button" class="popup__button popup__button_close popup__image-view"></button>
         </div>
         </div>
-<script  type="module" src="scripts/index.js"></script>
-
+<!-- <script  type="module" src="./scripts/index.js"></script> -->
+<template id = "place">
+    <article class="place">
+        <img src="#" alt="#" loading="lazy" class="place__img" />
+        <div class="place__wrapper">
+            <h3 class="place__title"></h3>
+            <button type="button" class="place__button place__button_like" aria-label="Лайкнуть эту шнягу"></button>
+        </div>
+        <button type="button" class="place__button place__button_delete" aria-label="Удалить карточку"></button>
+    </article>
+</template>
 </body>
 </html>

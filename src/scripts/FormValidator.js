@@ -1,6 +1,6 @@
 
 class FormValidator {
-    _validationElement
+    
     constructor(validationElement, settingsForValidation) {
         this._validationElement = validationElement;
         this._formSelector = settingsForValidation.formSelector;
