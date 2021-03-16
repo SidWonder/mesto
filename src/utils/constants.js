@@ -41,3 +41,24 @@ export const settingsForValidation = {
     inactiveButtonClass: 'form__button_disabled',
     errorClass: 'form__error_visible',
 };
+
+export const selectors = {
+
+    profileEditButtonSelector: '.profile__button_edit',
+    profileHeaderInputSelector: '#profile__header-change',
+    profileSubtitleInputSelector: '#profile__subtitle-change',
+    profilePopupSelector: '.popup-profile',
+    profileHeaderSelector: '.profile__header',
+    profileSubtitleSelector: '.profile__subtitle',
+    popupCloseButtonSelector: '.popup__button_close',
+    popupFormSelector: '.form',
+    placeTemplateSelector: '#place',
+    placeAddButtonSelector: '.profile__button_add',
+    placeAddPopupSelector: '.popup-place',
+    placeTitleInputSelector: '#place-title-change',
+    placeUrlInputSelector: '#place-url-change',
+    placesSectionSelector: '.places',
+    imageViewerPopupSelector: '.popup-image',
+    imageViewerPopupImgSelector:  '.popup__img',
+    imageViewerPopupTitleSelector: '.popup__subtitle',
+}

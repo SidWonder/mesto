@@ -2,58 +2,41 @@
 
 //imports
 import '../pages/index.css';
-import {Card}  from './Card.js';
-import { FormValidator } from './FormValidator.js';
-import Section from "./Section.js";
-import {initialCards} from "./constants.js";
-import {settingsForValidation} from "./constants.js";
-import UserInfo from './UserInfo'
-import PopupWithForm from "./PopupWithForm";
-import PopupWithImage from "./PopupWithImage";
+import {Card}  from '../components/Card.js';
+import { FormValidator } from '../components/FormValidator.js';
+import Section from "../components/Section.js";
+import {settingsForValidation, initialCards, selectors} from "../utils/constants.js";
+import UserInfo from '../components/UserInfo'
+import PopupWithForm from "../components/PopupWithForm";
+import PopupWithImage from "../components/PopupWithImage";
 //object with classes for validation
 
-//popup main settings
-const popupsList = Array.from(document.querySelectorAll('.popup'));
-//Keycodes for needed btn
+const {profileEditButtonSelector,
+    profileHeaderInputSelector,
+    profileSubtitleInputSelector,
+    profilePopupSelector,
+    profileHeaderSelector,
+    profileSubtitleSelector,
+    placeAddButtonSelector,
+    placeTemplateSelector,
+    placesSectionSelector,
+    placeAddPopupSelector,
+    imageViewerPopupSelector
+} = selectors;
 
-
-const forms = document.querySelectorAll('.form');
-
-//popup profile edit settings
-const editProfileBtn = document.querySelector(".profile__button_edit");
-
-const profileHeaderInput = document.querySelector('#profile__header-change');
-const profileSubtitleInput = document.querySelector('#profile__subtitle-change');
-const profilePop = document.querySelector('.popup-profile');
-const profileHeader = document.querySelector(".profile__header");
-const profileSubtitle = document.querySelector(".profile__subtitle");
-const closeEditProfile = profilePop.querySelector('.popup__button_close');
-const profileForm = profilePop.querySelector('.form');
-
-//popup place add settings
-const placeTemplateSelector = '#place';
-const placeAddBtn = document.querySelector(".profile__button_add");
-const popupPlaceAdd = document.querySelector('.popup-place');
-const placeInputTitle = document.querySelector('#place-title-change');
-const placeInputUrl = document.querySelector('#place-url-change');
-const placesSection = document.querySelector(".places");
-const closeAddPlace = popupPlaceAdd.querySelector('.popup__button_close');
-const placeAddForm = popupPlaceAdd.querySelector('.form');
-//popup image view settings
-const imageViewerPopup = document.querySelector('.popup-image');
-const imageViewer = document.querySelector('.popup-image');
-const popupImgView = document.querySelector('.popup__img');
-const popupImgTitle = document.querySelector('.popup__subtitle');
-const imageViewerClose = imageViewerPopup.querySelector('.popup__button_close');
-
+const forms = document.querySelectorAll(settingsForValidation.formSelector);
+const editProfileBtn = document.querySelector(profileEditButtonSelector);
+const profileHeaderInput = document.querySelector(profileHeaderInputSelector);
+const profileSubtitleInput = document.querySelector(profileSubtitleInputSelector);
+const placeAddBtn = document.querySelector(placeAddButtonSelector);
 
 const userInfo = new UserInfo({
-    name: '.profile__header',
-    about: '.profile__subtitle'
+    name: profileHeaderSelector,
+    about: profileSubtitleSelector
 })
 
 const popupEditProfile = new PopupWithForm(
-    '.popup-profile',
+    profilePopupSelector,
     {
         submiter: (item) => {
             userInfo.setUserInfo(item);
@@ -68,7 +51,7 @@ const openEditProfileHandler = () => {
     popupEditProfile.open();
 }
 
-const popupImgViewer = new PopupWithImage('.popup-image')
+const popupImgViewer = new PopupWithImage(imageViewerPopupSelector)
 
 
 const cardCreator = (data) => {
@@ -87,14 +70,14 @@ const inititalCardRender = new Section({items: initialCards,
         const cardElement = card.createCard();
         inititalCardRender.addItem(cardElement);
     }
-}, '.places');
+}, placesSectionSelector);
 inititalCardRender.renderItems();
 
 const popupAddPlace = new PopupWithForm(
-    '.popup-place',
+    placeAddPopupSelector,
     {
         submiter: (data) => {
-            const card = new Card(data);
+            const card = cardCreator(data);
             const cardElement = card.createCard();
             inititalCardRender.addItem(cardElement, 'prepend');
             popupAddPlace.close();
@@ -110,12 +93,10 @@ editProfileBtn.addEventListener('click', openEditProfileHandler)
 
 placeAddBtn.addEventListener('click', openAddNewPlaceHandler)
 
-const enablevl= () => {
+const enableValidation= () => {
     forms.forEach((form)=> {
         const formValid = new FormValidator(form, settingsForValidation);
         formValid._enableValidation();
     })
 };
-enablevl ()
-//
-// renderClassCard();
+enableValidation();

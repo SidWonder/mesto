@@ -5,7 +5,6 @@ export default class Section {
         this._container = document.querySelector(containerSelector);
     }
 
-
     clear() {
         this._container.innerHTML = '';
     }

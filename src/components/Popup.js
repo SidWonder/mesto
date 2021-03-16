@@ -1,10 +1,12 @@
-import {btnEsc} from "./constants.js";
+import {btnEsc, selectors} from "../utils/constants.js";
+
+const {popupCloseButtonSelector} = selectors;
 
 export default class Popup {
 
     constructor(popupSelector) {
         this._popup = document.querySelector(popupSelector);
-        this._popupCloseBtn = this._popup.querySelector('.popup__button_close');
+        this._popupCloseBtn = this._popup.querySelector(popupCloseButtonSelector);
         this._popupStateActive = "popup_active";
     }
 

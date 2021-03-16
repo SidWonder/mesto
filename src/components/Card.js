@@ -1,12 +1,9 @@
-//import { imgView } from './index.js';
-
-//Class for create card
-
 export class Card {
     constructor(data, templateSelector = '#place', { handleCardClick }) {
         this._data = data;
         this._templateSelector = templateSelector;
         this._handleCardClick = handleCardClick;
+        console.log(this._handleCardClick)
     }
 
     _getTemplate(){
@@ -31,7 +28,14 @@ export class Card {
 
         return this._element;
     }
-//заменить на классовые перемменные как в createCard
+    _handleLikeButton(){
+        this._element.querySelector(".place__button_like").classList.toggle("place__button_like-active");
+    }
+
+    _handleDeleteButton(){
+        this._element.remove();
+    }
+
     _setEventListeners() {
 
         this._element.querySelector(".place__button_like").addEventListener('click', () => {
@@ -45,15 +49,5 @@ export class Card {
         })
     }
 
-    _handleLikeButton(){
-        this._element.querySelector(".place__button_like").classList.toggle("place__button_like-active");
-    }
 
-    _handleDeleteButton(){
-        this._element.remove();
-    }
-
-    _handleImageViewerPopup(){
-       // imgView(this._data.link, this._data.name);
-    }
 }
