@@ -1,19 +1,16 @@
 import Popup from "./Popup.js";
-import {selectors} from "../utils/constants";
-
-const {imageViewerPopupImgSelector, imageViewerPopupTitleSelector} = selectors;
 
 export default class PopupWithImage extends Popup{
     constructor(popupSelector) {
         super(popupSelector);
-        this._popupViewImg =  this._popup.querySelector(imageViewerPopupImgSelector);
-        this._popupViewTitle = this._popup.querySelector(imageViewerPopupTitleSelector);
+        this._popupViewImg =  this._popup.querySelector('.popup__img');
+        this._popupViewTitle = this._popup.querySelector('.popup__subtitle');
     }
 
-    open({link, name}) {
+    open(data) {
         super.open();
-        this._popupViewImg.src = link;
-        this._popupViewImg.alt = name;
-        this._popupViewTitle.textContent = name;
+        this._popupViewImg.src = data.link || data['place-url'];;
+        this._popupViewImg.alt = data.name || data['place-title'];;
+        this._popupViewTitle.textContent = data.name|| data['place-title'];;
     }
 }

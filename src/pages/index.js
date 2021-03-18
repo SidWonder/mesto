@@ -55,9 +55,9 @@ const popupImgViewer = new PopupWithImage(imageViewerPopupSelector)
 
 
 const cardCreator = (data) => {
-
     const card = new Card(data, placeTemplateSelector,{
         handleCardClick: (data)=> {
+            console.log(data)
             popupImgViewer.open(data);
         }
     })
@@ -78,13 +78,13 @@ const popupAddPlace = new PopupWithForm(
     {
         submiter: (data) => {
             const card = cardCreator(data);
+            console.log(data);
             const cardElement = card.createCard();
             inititalCardRender.addItem(cardElement, 'prepend');
             popupAddPlace.close();
         }
     }
 )
-popupAddPlace.setEventListeners()
 const openAddNewPlaceHandler = () => {
     popupAddPlace.open();
 }

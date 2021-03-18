@@ -1,12 +1,8 @@
-import {btnEsc, selectors} from "../utils/constants.js";
-
-const {popupCloseButtonSelector} = selectors;
-
 export default class Popup {
 
     constructor(popupSelector) {
         this._popup = document.querySelector(popupSelector);
-        this._popupCloseBtn = this._popup.querySelector(popupCloseButtonSelector);
+        this._popupCloseBtn = this._popup.querySelector('.popup__button_close');
         this._popupStateActive = "popup_active";
     }
 
@@ -22,7 +18,7 @@ export default class Popup {
     }
 
     _handleEscClose(evt) {
-        if (evt.keyCode === btnEsc) {
+        if (evt.keyCode === 27) {
             this.close();
         }
     }
