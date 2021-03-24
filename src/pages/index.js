@@ -43,7 +43,7 @@ const popupEditProfile = new PopupWithForm(
             popupEditProfile.close();
         }}
 );
-
+popupEditProfile.setEventListeners();
 const openEditProfileHandler = () => {
     const user = userInfo.getUserInfo();
     profileHeaderInput.value = user.name;
@@ -52,7 +52,7 @@ const openEditProfileHandler = () => {
 }
 
 const popupImgViewer = new PopupWithImage(imageViewerPopupSelector)
-
+popupImgViewer.setEventListeners();
 
 const cardCreator = (data) => {
     const card = new Card(data, placeTemplateSelector,{
@@ -85,6 +85,7 @@ const popupAddPlace = new PopupWithForm(
         }
     }
 )
+popupAddPlace.setEventListeners();
 const openAddNewPlaceHandler = () => {
     popupAddPlace.open();
 }
@@ -96,7 +97,7 @@ placeAddBtn.addEventListener('click', openAddNewPlaceHandler)
 const enableValidation= () => {
     forms.forEach((form)=> {
         const formValid = new FormValidator(form, settingsForValidation);
-        formValid._enableValidation();
+        formValid.enableValidation();
     })
 };
 enableValidation();

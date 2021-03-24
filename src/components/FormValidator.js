@@ -59,7 +59,7 @@ class FormValidator {
         });
     }
 
-    _enableValidation(){
+    enableValidation(){
         this._setEventListeners(this._validationElement);
     }
 

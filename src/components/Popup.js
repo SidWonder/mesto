@@ -4,21 +4,23 @@ export default class Popup {
         this._popup = document.querySelector(popupSelector);
         this._popupCloseBtn = this._popup.querySelector('.popup__button_close');
         this._popupStateActive = "popup_active";
+        this._handleOverlayClose =  this._handleOverlayClose.bind(this)
     }
 
     open() {
         this._popup.classList.add(this._popupStateActive);
         document.addEventListener('keydown', this._handleEscClose);
-        this.setEventListeners();
+        this._popup.addEventListener('click', this._handleOverlayClose);
     }
 
     close() {
         this._popup.classList.remove(this._popupStateActive);
-        this.removerEventListeners();
+        document.addEventListener('keydown', this._handleEscClose);
+        this._popup.addEventListener('click', this._handleOverlayClose);
     }
 
     _handleEscClose(evt) {
-        if (evt.keyCode === 27) {
+        if (evt.key === 'Escape') {
             this.close();
         }
     }
@@ -32,13 +34,5 @@ export default class Popup {
     setEventListeners() {
         this._popup.addEventListener('click', this._handleOverlayClose.bind(this));
         this._popupCloseBtn.addEventListener('click', this.close.bind(this));
-        document.addEventListener('keyup', this._handleEscClose.bind(this));
-
-    }
-
-    removerEventListeners() {
-        this._popup.removeEventListener('click', this._handleOverlayClose.bind(this));
-        this._popupCloseBtn.removeEventListener('click', this.close.bind(this));
-        document.removeEventListener('keyup', this._handleEscClose.bind(this));
     }
 }
