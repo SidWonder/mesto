@@ -4,7 +4,8 @@ export default class Popup {
         this._popup = document.querySelector(popupSelector);
         this._popupCloseBtn = this._popup.querySelector('.popup__button_close');
         this._popupStateActive = "popup_active";
-        this._handleOverlayClose =  this._handleOverlayClose.bind(this)
+        this._handleOverlayClose =  this._handleOverlayClose.bind(this);
+        this._handleEscClose = this._handleEscClose.bind(this);
     }
 
     open() {
@@ -15,8 +16,8 @@ export default class Popup {
 
     close() {
         this._popup.classList.remove(this._popupStateActive);
-        document.addEventListener('keydown', this._handleEscClose);
-        this._popup.addEventListener('click', this._handleOverlayClose);
+        document.removeEventListener('keydown', this._handleEscClose);
+        this._popup.removeEventListener('click', this._handleOverlayClose);
     }
 
     _handleEscClose(evt) {
