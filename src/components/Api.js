@@ -30,7 +30,6 @@ export default class Api {
     }
 
     setUserAvatar(data){
-        console.log(data)
         return fetch(`${this.baseUrl}/users/me/avatar`, {
             method: 'PATCH',
             headers: this.headers,
@@ -65,8 +64,6 @@ export default class Api {
         }).then(this._handleOriginalResponse)
     }
 
-
-
     deleteLike(data){
         return fetch (`${this.baseUrl}/cards/likes/${data['_id']}`, {
             method: 'DELETE',
@@ -75,7 +72,6 @@ export default class Api {
     }
 
     deleteCard(data){
-        console.log("DELETE CARD", data)
         return fetch(`${this.baseUrl}/cards/${data['_id']}`,{
             method: 'DELETE',
             headers: this.headers
