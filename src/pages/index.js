@@ -5,7 +5,7 @@ import './index.css';
 import {Card}  from '../components/Card.js';
 import { FormValidator } from '../components/FormValidator.js';
 import Section from "../components/Section.js";
-import {settingsForValidation, initialCards, selectors} from "../utils/constants.js";
+import {settingsForValidation, selectors} from "../utils/constants.js";
 import UserInfo from '../components/UserInfo'
 import PopupWithForm from "../components/PopupWithForm";
 import PopupWithImage from "../components/PopupWithImage";
@@ -81,16 +81,16 @@ const openEditProfileHandler = () => {
 
 const popupDeleteCard = new PopupWithConfirm(confirmPopupSelector, {
     submiter: (data, card) => {
-        // popupDeleteCard.renderLoading(true);
+        popupDeleteCard.renderLoading(true);
         api.deleteCard(data)
             .then(() => {
-                card._deleteCard();
+                card.deleteCardFromPage();
             })
             .catch((err) => {
                 console.log(err);
             })
             .finally(() => {
-                // popupDeleteCard.renderLoading(false);
+                popupDeleteCard.renderLoading(false);
                 popupDeleteCard.close();
             });
     }
@@ -156,7 +156,7 @@ const cardCreator = (data) => {
 }
 
 const inititalCardRender = new Section({/*items: initialCards,*/
-    renderer:(item)=>{
+    renderer:(item , authorID)=>{
         const card = cardCreator(item);
         const cardElement = card.createCard();
         inititalCardRender.addItem(cardElement);
@@ -172,7 +172,7 @@ const popupAddPlace = new PopupWithForm(
                 .then((res)=> {
                     const card = cardCreator(res);
                     const cardElement = card.createCard();
-                    inititalCardRender.addItem(cardElement, 'prepend');
+                    inititalCardRender.addItem(cardElement, 'append');
                 })
                 .catch((err) => console.log(err))
                 .finally(() => {
@@ -207,17 +207,14 @@ const enableValidation= () => {
 };
 enableValidation();
 
-const usInfo = api.getUserInfo()
+api.getInitialData()
     .then((data) => {
-        authorId = data['_id'];
-        userInfo.setUserInfo(data)
-        userInfo.setUserAvatar(data);
+        const [userData, cardsData] = data;
+        userInfo.setUserInfo(userData)
+        authorId = userData['_id'];
+        userInfo.setUserAvatar(userData);
+        inititalCardRender.renderItems(cardsData, authorId);
     })
     .catch((err) => {
         console.log(err);
     })
-
-const aptGetInitialCards = api.getInitialCards()
-    .then(data => {
-        inititalCardRender.renderItems(data);
-    });

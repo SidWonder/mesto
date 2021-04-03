@@ -6,6 +6,7 @@ export default class Popup {
         this._popupStateActive = "popup_active";
         this._handleOverlayClose =  this._handleOverlayClose.bind(this);
         this._handleEscClose = this._handleEscClose.bind(this);
+        this.close = this.close.bind(this);
     }
 
     open() {
@@ -33,7 +34,6 @@ export default class Popup {
     }
 
     setEventListeners() {
-        this._popup.addEventListener('click', this._handleOverlayClose.bind(this));
-        this._popupCloseBtn.addEventListener('click', this.close.bind(this));
+        this._popupCloseBtn.addEventListener('click', this.close);
     }
 }

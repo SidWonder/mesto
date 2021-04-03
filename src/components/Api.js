@@ -4,6 +4,11 @@ export default class Api {
         this.headers = headers;
     }
 
+    getInitialData() {
+        return Promise.all([this.getUserInfo(), this.getCards()]);
+    }
+
+
     _handleOriginalResponse(res) {
         if (!res.ok) {
             return Promise.reject(`Error: ${res.status}`);
@@ -39,7 +44,7 @@ export default class Api {
         }).then(this._handleOriginalResponse)
     }
 
-    getInitialCards() {
+    getCards() {
         return fetch(`${this.baseUrl}/cards`, {
             method: 'GET',
             headers: this.headers

@@ -6,7 +6,18 @@ export default class PopupWithConfirm extends Popup {
         this._submiter = submiter;
         this._form = this._popup.querySelector('.form');
         this._submitEvtHandler = this._submitEvtHandler.bind(this);
+        this._submitButton = this._form.querySelector('.form__save-button');
+        this._initialValueSubmitButton = this._submitButton.textContent;
 
+    }
+
+    renderLoading(isLoading, initialDownloadMessage = 'Cохранение...') {
+        console.log('dsds')
+        if (isLoading) {
+            this._submitButton.textContent = initialDownloadMessage;
+        } else {
+            this._submitButton.textContent = this._initialValueSubmitButton;
+        }
     }
 
     _submitEvtHandler(evt) {

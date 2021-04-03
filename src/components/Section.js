@@ -16,10 +16,10 @@ export default class Section {
         }
     }
 
-    renderItems(data) {
+    renderItems(data, authorId) {
         this.clear();
         data.forEach(item => {
-            this._renderer(item);
+            this._renderer(item,  authorId);
         });
     }
 

@@ -8,6 +8,8 @@ export class Card {
         this._deleteLike = deleteLike;
         this._likesCount = this._data.likes.length;
         this._handleCardDeleteClick = handleCardDeleteClick;
+        this._myLikes =  this._data.likes.filter((item) => item['_id'] === this._userId)
+        console.log('CARD',this._data);
     }
 
     _getTemplate(){
@@ -25,9 +27,12 @@ export class Card {
         this._elementLikesCount.textContent = this._likesCount;
 
         this._elementDeleteBtn = this._element.querySelector(".place__button_delete");
+
         if (this._data['owner']['_id'] !== this._userId) {
             this._elementDeleteBtn.remove()
         }
+
+        if(this._myLikes.length) this._element.querySelector(".place__button_like").classList.add("place__button_like-active");
 
         this._elementImg = this._element.querySelector(".place__img");
         this._elementPlaceTitle = this._element.querySelector(".place__title");
@@ -47,10 +52,10 @@ export class Card {
             this._deleteLike(data);
         }
     }
-_setIdCard(){
+    _setIdCard(){
         this._element.setAttribute('id', this._data['_id']);
 }
-    _deleteCard(){
+    deleteCardFromPage(){
         this._element.remove();
     }
 

@@ -17,7 +17,6 @@ export default class PopupWithForm extends Popup{
 
 
     renderLoading(isLoading, initialDownloadMessage = 'Cохранение...') {
-        console.log('dsds')
         if (isLoading) {
             this._submitButton.textContent = initialDownloadMessage;
         } else {
@@ -36,6 +35,7 @@ export default class PopupWithForm extends Popup{
 
     close() {
         this._form.reset();
+        this._form.removeEventListener('submit', this._submitEvtHandler);
         super.close();
     }
 
