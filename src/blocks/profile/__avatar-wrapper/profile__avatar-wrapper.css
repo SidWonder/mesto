@@ -1,0 +1,24 @@
+.profile__avatar-wrapper {
+    flex: 0 0 13.6%;
+    position: relative;
+}
+
+.profile__avatar-wrapper::before {
+    position: absolute;
+    cursor: pointer;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 120px;
+    height: 120px;
+    /*border-radius: 50%;*/
+}
+
+.profile__avatar-wrapper:hover:before {
+    background: rgba(0, 0, 0, .8);
+    transition: all .55s ease-in;
+    background-image: url('../../../img/icons/edit_avatar.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto;
+}

@@ -5,11 +5,24 @@ export default class PopupWithForm extends Popup{
         super(popupSelector);
         this._submiter = submiter;
         this._form = this._popup.querySelector('.form');
+        this._submitButton = this._form.querySelector('.form__button');
+        this._initialValueSubmitButton = this._submitButton.textContent;
         this._submitEvtHandler = this._submitEvtHandler.bind(this);
+        this.renderLoading = this.renderLoading.bind(this)
     }
     _submitEvtHandler(evt) {
         evt.preventDefault();
         this._submiter(this._getInputValues());
+    }
+
+
+    renderLoading(isLoading, initialDownloadMessage = 'Cохранение...') {
+        console.log('dsds')
+        if (isLoading) {
+            this._submitButton.textContent = initialDownloadMessage;
+        } else {
+            this._submitButton.textContent = this._initialValueSubmitButton;
+        }
     }
     _getInputValues() {
         const inputsList = Array.from(this._form.querySelectorAll('.form__input'));

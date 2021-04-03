@@ -14,7 +14,10 @@
     </header>
     <main class="content">
         <section class="profile">
-            <img class="profile__avatar" src="./img/profile/profile-avatar.png" alt="Аватар пользователя" />
+            <div class="profile__avatar-wrapper">
+                <img class="profile__avatar" src="./img/profile/profile-avatar.png" alt="Аватар пользователя" />
+            </div>
+
             <div class="profile__wrapper">
                 <h1 class="profile__header">Жак-Ив Кусто</h1>
                 <button class="profile__button profile__button_edit" type="button" aria-label="Редактировать профиль" ></button>
@@ -102,13 +105,44 @@
                 <button type="button" class="popup__button popup__button_close popup__image-view"></button>
         </div>
         </div>
-<!-- <script  type="module" src="./scripts/index.js"></script> -->
+        <div class="popup popup-avatar">
+    <div class="popup__container">
+        <h3 class="popup__title">Обновить аватар</h3>
+        <form id="avatar-edit" class="form" name="place-add" novalidate>
+            <label class="form__label">
+                <input class="form__input"
+                       value=""
+                       type="url"
+                       id="avatar-url-change"
+                       name="avatar-url"
+                       placeholder="Ссылка на аватар"
+                       minlength="1"
+                       required
+                />
+                <span class="form__error" id="avatar-url-change-error"></span>
+            </label>
+            <button  id="avatar__add-new-place" type="submit" class="form__button form__button_disabled">Сохранить</button>
+        </form>
+        <button type="button" class="popup__button popup__button_close"></button>
+    </div>
+</div>
+        <div class="popup popup-confirm">
+            <div class="popup__container popup__container_confirm">
+                <form class="form confirm-form" name="confirm" novalidate>
+                    <h3 class="form__header">Вы уверены?</h3>
+                    <button type="submit" class="form__save-button">Да</button>
+                </form>
+                <button type="button" class="popup__button popup__button_close"></button>
+            </div>
+        </div>
+
 <template id = "place">
     <article class="place">
         <img src="#" alt="#" loading="lazy" class="place__img" />
         <div class="place__wrapper">
             <h3 class="place__title"></h3>
             <button type="button" class="place__button place__button_like" aria-label="Лайкнуть эту шнягу"></button>
+            <span class="place__like-counter"></span>
         </div>
         <button type="button" class="place__button place__button_delete" aria-label="Удалить карточку"></button>
     </article>

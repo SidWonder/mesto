@@ -1,5 +1,5 @@
 .place__title {
-
+    grid-area: header;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;

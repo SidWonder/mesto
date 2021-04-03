@@ -1,7 +1,11 @@
 .place__wrapper{
-    display: flex;
-    padding: 23px 20px 28px 20px;
-    justify-content: space-between;
-    align-items: center;
-    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 218px 22px;
+    grid-template-areas:
+            "header like"
+            "header count";
+    grid-row-gap: 3px;
+        max-height: 80px;
+        padding: 25px 20px 31px 20px;
+        box-sizing: border-box;
 }

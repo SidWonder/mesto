@@ -61,4 +61,8 @@ export const selectors = {
     imageViewerPopupSelector: '.popup-image',
     imageViewerPopupImgSelector:  '.popup__img',
     imageViewerPopupTitleSelector: '.popup__subtitle',
+    confirmPopupSelector: '.popup-confirm',
+    avatarSelector: '.profile__avatar',
+    avatarEditButtonSelector: '.profile__avatar-wrapper',
+    avatarPopupSelector: '.popup-avatar',
 }

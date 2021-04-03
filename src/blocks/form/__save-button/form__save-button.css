@@ -1,0 +1,14 @@
+.form__save-button {
+    padding: 13px 167px 18px 167px;
+    box-sizing: border-box;
+    max-height: 50px;
+    border: none;
+    background-color: #000000;
+    color: white;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+}

@@ -1,5 +1,7 @@
 .place__button_like {
     background: transparent url("../../../../img/icons/heart.png") no-repeat;
+    grid-area: like;
+    justify-self: flex-end;
 }
 
 .place__button_like:active{
