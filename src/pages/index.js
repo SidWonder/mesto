@@ -172,7 +172,7 @@ const popupAddPlace = new PopupWithForm(
                 .then((res)=> {
                     const card = cardCreator(res);
                     const cardElement = card.createCard();
-                    inititalCardRender.addItem(cardElement, 'append');
+                    inititalCardRender.addItem(cardElement, 'prepend');
                 })
                 .catch((err) => console.log(err))
                 .finally(() => {

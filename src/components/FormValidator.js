@@ -63,6 +63,9 @@ class FormValidator {
             curForm.addEventListener('reset', ()=> {
                 const errElem = document.querySelector(`#${inputElement.id}-error`);
                 this._hideInputError(errElem, inputElement);
+                //грубо отключаю кнопку, т.к. не придумал как это сделать через метод(
+                buttonElement.disabled = true;
+                buttonElement.classList.add(this._inactiveButtonClass);
             })
         })
 

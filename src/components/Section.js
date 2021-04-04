@@ -8,7 +8,7 @@ export default class Section {
         this._container.innerHTML = '';
     }
 
-    addItem(element, place = 'prepend') {
+    addItem(element, place = 'append') {
         if (place === 'append') {
             this._container.append(element);
         } else {
