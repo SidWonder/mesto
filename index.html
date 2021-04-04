@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mesto</title>
+<script defer src="main.js"></script><link href="main.css" rel="stylesheet"></head>
+<body class="root">
+<div class="page">
+    <header class="header">
+        <a href="#" target="_blank" class="header__link">
+            <img class="header__logo" src="a8a2cc376a4f96fe4a17.png" alt="Место Россия" />
+        </a>
+    </header>
+    <main class="content">
+        <section class="profile">
+            <div class="profile__avatar-wrapper">
+                <img class="profile__avatar" src="727b5baa123f981bf5e0.png" alt="Аватар пользователя" />
+            </div>
+
+            <div class="profile__wrapper">
+                <h1 class="profile__header">Жак-Ив Кусто</h1>
+                <button class="profile__button profile__button_edit" type="button" aria-label="Редактировать профиль" ></button>
+                <p class="profile__subtitle">Исследователь океана</p>
+            </div>
+            <button class="profile__button profile__button_add" type="button" aria-label="Добавить что-то новенькое" ></button>
+        </section>
+        <section class="places">
+
+        </section>
+    </main>
+    <footer class="footer">
+        <p class="footer__item">&copy; 2021 Mesto Russia</p>
+    </footer>
+</div>
+        <div class="popup popup-profile">
+            <div class="popup__container">
+            <h3 class="popup__title">Редактировать профиль</h3>
+            <form id="profile-edit" class="form" name="profile-edit" novalidate>
+                <label  class="form__label">
+                    <input class="form__input"
+                           id="profile__header-change"
+                           type="text"
+                           name="profile-name"
+                           placeholder=""
+                           minlength="2"
+                           maxlength="40"
+                           required
+                    />
+                    <span class="form__error" id="profile__header-change-error"></span>
+                </label>
+                <label class="form__label">
+                    <input class="form__input"
+                           id="profile__subtitle-change"
+                           type="text"
+                           name="profile-job"
+                           minlength="2"
+                           maxlength="200"
+                           required
+                           placeholder="" />
+                    <span class="form__error"  id="profile__subtitle-change-error"></span>
+                </label>
+                <button disabled id="popup__profile-confirm-changes" type="submit" class="form__button form__button_disabled">Сохранить</button>
+            </form>
+            <button type="button" class="popup__button popup__button_close"></button>
+        </div>
+        </div>
+        <div class="popup popup-place">
+            <div class="popup__container">
+            <h3 class="popup__title">Новое место</h3>
+            <form id="place-add" class="form" name="place-add" novalidate>
+                <label class="form__label">
+                    <input id="place-title-change"
+                           class="form__input"
+                           type="text"
+                           value=""
+                           name="place-title"
+                           placeholder="Название"
+                           minlength="1"
+                           maxlength="30"
+                           required/>
+                    <span class="form__error" id="place-title-change-error"></span>
+                </label>
+                <label class="form__label">
+                    <input class="form__input"
+                           value=""
+                           type="url"
+                           id="place-url-change"
+                           name="place-url"
+                           placeholder="Ссылка на картинку"
+                           minlength="1"
+                           required
+                    />
+                    <span class="form__error" id="place-url-change-error"></span>
+                </label>
+                <button  id="popup__add-new-place" type="submit" class="form__button form__button_disabled">Создать</button>
+            </form>
+            <button type="button" class="popup__button popup__button_close"></button>
+        </div>
+        </div>
+        <div class="popup popup-image">
+            <div class="popup__container popup__container_image">
+                <img class="popup__img" loading="lazy" src="#" alt="#">
+                <p class="popup__subtitle"></p>
+                <button type="button" class="popup__button popup__button_close popup__image-view"></button>
+        </div>
+        </div>
+        <div class="popup popup-avatar">
+    <div class="popup__container">
+        <h3 class="popup__title">Обновить аватар</h3>
+        <form id="avatar-edit" class="form" name="place-add" novalidate>
+            <label class="form__label">
+                <input class="form__input"
+                       value=""
+                       type="url"
+                       id="avatar-url-change"
+                       name="avatar-url"
+                       placeholder="Ссылка на аватар"
+                       minlength="1"
+                       required
+                />
+                <span class="form__error" id="avatar-url-change-error"></span>
+            </label>
+            <button  id="avatar__add-new-place" type="submit" class="form__button form__button_disabled">Сохранить</button>
+        </form>
+        <button type="button" class="popup__button popup__button_close"></button>
+    </div>
+</div>
+        <div class="popup popup-confirm">
+            <div class="popup__container popup__container_confirm">
+                <form class="form confirm-form" name="confirm" novalidate>
+                    <h3 class="form__header">Вы уверены?</h3>
+                    <button type="submit" class="form__save-button">Да</button>
+                </form>
+                <button type="button" class="popup__button popup__button_close"></button>
+            </div>
+        </div>
+
+<template id = "place">
+    <article class="place">
+        <img src="#" alt="#" loading="lazy" class="place__img" />
+        <div class="place__wrapper">
+            <h3 class="place__title"></h3>
+            <button type="button" class="place__button place__button_like" aria-label="Лайкнуть эту шнягу"></button>
+            <span class="place__like-counter"></span>
+        </div>
+        <button type="button" class="place__button place__button_delete" aria-label="Удалить карточку"></button>
+    </article>
+</template>
+</body>
+</html>
